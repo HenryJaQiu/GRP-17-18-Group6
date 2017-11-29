@@ -32,3 +32,32 @@ ii. 开发者介绍
 
 项目监督
 Dr.Liang Dai：
+
+
+Software introduction：
+	
+	This software is free education-assisting software of introducing particle filter algorithm, which is mainly used by college students and teachers.
+	
+	This software provides a simple and convenient operating platform to simulate the process of algorithm. Program can use different algorithm according to the user's decision and process imported sample data. Program will finally generate corresponding data and comparable images. This software can also provide the function of modifying parameters and showing the changes after that.
+	
+	Students can visually understand the significance of each parameter in algorithm by importing data to the software, modifying parameters and getting comparable images. Teachers can visualize the algorithm and help them teaching by using this software.
+	
+	
+	The idea of particle filter is based on Monte Carlo Simulation Method. It includes 4 stages: initialization, state transition, weight calculation and resampling. Particle filter is a kind of sequential importance sampling and it is used to estimate the distribution of target sample. 
+	
+	Due to the advantages shown in the nonlinear and non Gauss system, particle filter algorithm is widely used in economic, military, transportation, signal control and other fields.
+
+---（Software Version）---
+
+
+Developer introduction:
+
+development team
+Cong Liu:
+Hejia Qiu:
+Zexi Song:
+Kaiwen Zhang:
+Xiang Zhang:
+
+project supervisor
+Dr.Liang Dai：
