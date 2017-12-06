@@ -1,0 +1,61 @@
+
+\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+
+\section{UI Design}
+According to Alan(2006), all of the designs are designed for consumers. For this software, The design is for the main users: teachers and students which need to understand Sequential Monte Carl algorithm. Favourable user experience is the ultimate goal. Therefore,according to the features and purpose of the software, there is a simple design of user interface to represent the using of the software. It will be divided into two parts to describe the UI design. The first part is general design which includes the window and frame design. Each individual page will be explained as the next part.
+    \subsection{General Design}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.6]{page.png}
+        \caption{Window}
+        \label{fig:label}
+    \end{figure}
+    The software will be performed in a fixed-size window which can satisfy mainstream screen size. As shown above, Users can choose to minimize the window or stick it. Stick feature can guarantee the window keep showing on the screen and not hinder the operations on other softwares.
+   
+    In addition, there is a menu bar on the top of window contains two menu: File and Help. Several functions are placed in these menu as showed for convenience of getting these functions. However, they are not available in the whole process. It will be explained in next part.  
+
+    \subsection{Individual pages}
+        \subsubsection{page1}
+        
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[scale=0.6]{page1.png}
+            \caption{first page:File}
+            \label{fig:label1}
+        \end{figure}
+        
+        This page is to choose a algorithm according to click buttons in the middle of page. Especially, because the algorithm have not been chosen and no data can be exported, Only restart and exit function can be clicked by user in the File menu. Once users have their selection of algorithm and click the button, it will be jump to the next page automatically.
+    
+        \subsubsection{page2}
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[scale=0.6]{page3.png}
+            \caption{Main page}
+            \label{fig:label2}
+        \end{figure}
+        
+        It is the main page of the software. All the functions used to demonstrate Sequential Monte Carl algorithm are placed to this page. 
+        
+        The left side is separated to show and export data which are significant to run the algorithm. It is a checkbox on the top of right side. The checkbox contains amount of sample data can be chosen by user. If user want to run the algorithm with their data, they can click "Import File" to upload. Image box is in the middle of page, so that users can observe images comfortably. Four buttons:"Show image 1","Show image 2","Compare" and "Save" are on the bottom of image box. Thus, switch different images and compare them can be easy to use. Run and Clear buttons are closed to the image with apparent colors. At right of the image box, users can set value of some arguments by inputting value in the textbox. For example, number of particles in figure 3. Besides, this page allows users back to previous page to make a different choice by "back button. 
+
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.6]{page4.png}
+        \caption{Before running}
+        \label{fig:label3}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.6]{page5.png}
+        \caption{After running}
+        \label{fig:label4}
+    \end{figure}
+
+        As it mentioned before, the options in menus are not available all the time. Since File menu contains functional option: Import New File, Export Image and Export data, they have various state following the process of running the algorithm. Therefore, functions on export can not be used before running the algorithm as figure 4 and 5.
+
+\end{document}
