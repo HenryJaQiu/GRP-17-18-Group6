@@ -47,16 +47,17 @@ Requirement:
 Functional requirements:
 1.	There should be some way to illustrate how to use this software and explain the principle of algorithm.
 2.	The software should provide the function of selecting different algorithms.
-3.	For users with no other specific data, the software should provide some existing sample data to them and the function of modifying parameter which is set as default value.
+3.	For users with no other specific data, the software should provide some existing sample data to them
 4.	The software need the function of prompting and checking the format of the file when users import specific sample data.
 5.	The software should use the algorithm which is chosen by user to deal with the import sample data and generate the outcome image.
 6.	The software should provide modifiable parameter list and some simple explanations of each parameter.
-7.	The software should provide the output function to export images, data, or both according to the user's choice.
-8.	The software should permit user to combine two images together to compare the differences between them.
-9.	The software should provide the function of clearing the current data and results if users want to import another sample data.
-10.	The software should provide a function of putting the software window into the top. 
-11.	When the software crashes for some reason, there should be some way to restart it. 
-12.	The software need some function of checking update and submitting bugs by users.
+7.	The software should have the function of modifying parameters which is set as default value.
+8.	The software should provide the output function to export images, data, or both according to the user's choice.
+9.	The software should permit user to combine two images together to compare the differences between them.
+10.	The software should provide the function of clearing the current data and results if users want to import another sample data.
+11.	The software should provide a function of putting the software window into the top. 
+12.	When the software crashes for some reason, there should be some way to restart it. 
+13.	The software need some function of checking update and submitting bugs by users. 
 
 Non-functional requirements:
 1.	The window size of the software should be suitable for demonstration
