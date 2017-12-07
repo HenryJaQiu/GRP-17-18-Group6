@@ -40,3 +40,29 @@
 需要便于版本更新与功能迭代，便于完善程序功能性
 需要合适的软件容量，便于用户在短时间内下载和使用
 需要较低的开发成本，便于作为免费软件进行推广
+
+Requirement:
+	The software is a free education-assisting software and it is mainly used by college students and teachers. In order to meet the needs of users and provide good user experience, this software should satisfy a large number of significant requirements. In next parts, there are two types of requirements and each specific requirement will be analyzed and explained in details.
+
+Functional requirements:
+1.	There should be some way to illustrate how to use this software and explain the principle of algorithm.
+2.	The software should provide the function of selecting different algorithms.
+3.	For users with no other specific data, the software should provide some existing sample data to them and the function of modifying parameter which is set as default value.
+4.	The software need the function of prompting and checking the format of the file when users import specific sample data.
+5.	The software should use the algorithm which is chosen by user to deal with the import sample data and generate the outcome image.
+6.	The software should provide modifiable parameter list and some simple explanations of each parameter.
+7.	The software should provide the output function to export images, data, or both according to the user's choice.
+8.	The software should permit user to combine two images together to compare the differences between them.
+9.	The software should provide the function of clearing the current data and results if users want to import another sample data.
+10.	The software should provide a function of putting the software window into the top. 
+11.	When the software crashes for some reason, there should be some way to restart it. 
+12.	The software need some function of checking update and submitting bugs by users.
+
+Non-functional requirements:
+1.	The window size of the software should be suitable for demonstration
+2.	The user interface should be convenient for user activity.
+3.	The running time of using the algorithm to deal with the sample data should be as quick as possible. 
+4.	The software needs to run on major platforms and operating systems.
+5.	The software should be convenient for update and improvement.
+6.	The software require appropriate software capacity to be convenient for users download and use in a short period of time.
+7.	The software is free, it is better that the development and maintenance costs should be properly reduced.
