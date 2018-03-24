@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">Information</div>
+    <div class="title">Echarts Example</div>
     <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
   </div>
 </template>
@@ -10,23 +10,7 @@
     data () {
       return {
         echarts: {},
-        electron: process.versions['atom-shell'],
-        name: this.$route.name,
-        node: process.versions.node,
-        path: this.$route.path,
-        platform: require('os').platform(),
-        vue: require('vue/package.json').version
-      }
-    },
-    mounted () {
-      this.drawLine()
-    },
-    methods: {
-      drawLine () {
-        this.echarts = require('echarts')
-        this.myChart = this.echarts.init(document.getElementById('myChart'))
-        this.myChart.setOption({
-          title: { text: 'Echarts Test in Vue-Cli' },
+        option1: {
           tooltip: {},
           xAxis: {
             data: ['A', 'AA', 'FA', 'RUA', 'CC', 'DD']
@@ -37,7 +21,17 @@
             type: 'bar',
             data: [5, 20, 36, 10, 10, 20]
           }]
-        })
+        }
+      }
+    },
+    mounted () {
+      this.drawLine()
+    },
+    methods: {
+      drawLine () {
+        this.echarts = require('echarts')
+        this.myChart = this.echarts.init(document.getElementById('myChart'))
+        this.myChart.setOption(this.option1)
       }
     }
   }

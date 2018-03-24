@@ -1,28 +1,29 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
       <div class="left-side">
         <span class="title">
-          Welcome to your new project!
+          Particle Filter Simulator
         </span>
-        <system-information></system-information>
+        <filter-chart></filter-chart>
       </div>
 
       <div class="right-side">
         <div class="doc">
           <div class="title">Getting Started</div>
           <p>
-            electron-vue comes packed with detailed documentation that covers everything from
-            internal configurations, using the project structure, building your application,
-            and so much more.
+            <br><br>
+            Buttons Here
+            <br><br>
+            <br><br>
           </p>
-          <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
+          <button @click="">Button1</button><br><br>
         </div>
         <div class="doc">
-          <div class="title alt">Other Documentation</div>
-          <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
-          <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
+          <div class="title alt">Other Buttons</div>
+          <br><br>
+          <button class="alt" @click="">Button2</button>
+          <button class="alt" @click="">Button3</button>
         </div>
       </div>
     </main>
@@ -30,11 +31,11 @@
 </template>
 
 <script>
-  import SystemInformation from './LandingPage/SystemInformation'
+  import FilterChart from './LandingPage/FilterChart'
 
   export default {
     name: 'landing-page',
-    components: { SystemInformation },
+    components: { FilterChart },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
