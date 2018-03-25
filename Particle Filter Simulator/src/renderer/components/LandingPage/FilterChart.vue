@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">Echarts Example</div>
-    <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+    <div id="myChart" :style="{width: '450px', height: '350px'}"></div>
   </div>
 </template>
 
@@ -11,14 +11,49 @@
       return {
         echarts: {},
         option1: {
-          tooltip: {},
           xAxis: {
             data: ['A', 'AA', 'FA', 'RUA', 'CC', 'DD']
           },
           yAxis: {},
+          dataZoom: [
+            {
+              type: 'slider',
+              show: true,
+              xAxisIndex: [0]
+            },
+            {
+              type: 'slider',
+              show: true,
+              yAxisIndex: [0]
+            }
+          ],
+          tooltip: {
+            // axisPointer 指示器
+            show: true,
+            trigger: 'item',
+            axisPointer: {
+              type: 'cross',
+              snap: true,
+              opacity: 0.8
+            }
+          },
+          toolbox: {
+            show: true,
+            orient: 'horizontal',
+            feature: {
+              dataZoom: {
+                yAxisIndex: 'none'
+              },
+              dataView: {
+                readOnly: true
+              },
+              restore: {},
+              saveAsImage: {}
+            }
+          },
           series: [{
-            name: 'ruaruarua!',
-            type: 'bar',
+            name: 'Particle Filter!',
+            type: 'line',
             data: [5, 20, 36, 10, 10, 20]
           }]
         }
