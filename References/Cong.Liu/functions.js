@@ -1,17 +1,17 @@
 function randn(sz1, sz2){
-  var mat = math.zeros(sz1, sz2);
-  for(var i = 0;i < sz1;i++){
-      for(var j = 0;j < sz2;j++){
-          var u1 = Math.random();
-          var u2 = Math.random();
-          var angle = 2 * Math.PI * u2;
-          var r = Math.sqrt((-2) * Math.log(u1));
-          var z0 = r * Math.cos(angle);
-          //var z1 = r * Math.sin(angle);
-          math.subset(mat, math.index(i,j), z0);
-      }
-  }
-  return mat;
+    var mat = math.zeros(sz1, sz2);
+    for(var i = 0;i < sz1;i++){
+        for(var j = 0;j < sz2;j++){
+            var u1 = Math.random();
+            var u2 = Math.random();
+            var angle = 2 * Math.PI * u2;
+            var r = Math.sqrt((-2) * Math.log(u1));
+            var z0 = r * Math.cos(angle);
+            //var z1 = r * Math.sin(angle);
+            mat.subset(math.index(i,j), z0);
+        }
+    }
+    return mat;
 }
 
 size(x, dim){
