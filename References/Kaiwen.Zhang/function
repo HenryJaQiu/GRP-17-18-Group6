@@ -1,7 +1,7 @@
 
 function size(mat, dim){
     var m = math.size(mat);
-    return m.subset(math.index(dim-1));
+    return m.subset(math.index(dim));
 }
 
 /*
