@@ -1,7 +1,7 @@
 
 function size(mat, dim){
     var m = math.size(mat);
-    return m.subset(math.index(dim-1));
+    return m.subset(math.index(dim));
 }
 
 /*
@@ -12,8 +12,8 @@ function sqrtm(mat){
 
 function randn(sz1, sz2){
     var mat = math.zeros(sz1, sz2);
-    for(var i = 0;i < sz1-1;i++){
-        for(var j = 0;j < sz2-1;j++){
+    for(var i = 0;i < sz1;i++){
+        for(var j = 0;j < sz2;j++){
             var u1 = Math.random();
             var u2 = Math.random();
             var angle = 2 * Math.PI * u2;
@@ -23,31 +23,7 @@ function randn(sz1, sz2){
             mat.subset(math.index(i,j), z0);
         }
     }
-}
-
-function repmat(mat, num1, num2){
-    var size = math.size(mat);
-    var row = size.subset(math.index(0));
-    var col = size.subset(math.index(1));
-    var output = math.zeros(row * num1, col * num2);
-    for(var a = 0;a < num1 * row;a = a + row){
-        for(var b = 0;b < num2 * col;b = b + col){
-            for(var i = a;i < row;i++){
-                for(var j = b;j < col;j++){
-                    var p = i;
-                    var q = j;
-                    while(p > row){
-                        p = p - row;
-                    }
-                    while(q > col){
-                        q = q - col;
-                    }
-                    output.subset(math.index(i,j), mat.subset(math.index(p,q)));
-                }
-            }
-        }
-    }
-    return output;
+    return mat;
 }
 
 /*
