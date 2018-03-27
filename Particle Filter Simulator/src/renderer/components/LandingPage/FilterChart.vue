@@ -12,7 +12,7 @@
         echarts: {},
         option1: {
           xAxis: {
-            data: ['A', 'AA', 'FA', 'RUA', 'CC', 'DD']
+            data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
           },
           yAxis: {},
           dataZoom: [
@@ -52,9 +52,30 @@
             }
           },
           series: [{
-            name: 'Particle Filter!',
+            name: 'xhat',
             type: 'line',
-            data: [5, 20, 36, 10, 10, 20]
+            itemStyle: {
+              opacity: 0
+            },
+            lineStyle: {
+              color: 'red',
+              width: 1,
+              type: 'solid'
+            },
+            data: [-0.010400274, 17.78367866, 1.998126664, 2.125066577, 9.045655265, -2.263150158, -1.486251726, -8.94276337, -13.64800407, -12.09988305]
+          },
+          {
+            name: 'xTrue',
+            type: 'line',
+            itemStyle: {
+              opacity: 0
+            },
+            lineStyle: {
+              color: 'grey',
+              width: 1,
+              type: 'dashed'
+            },
+            data: [0.977311356, 18.35047756, 3.256392619, -1.181589658, -16.5583134, -6.918493812, -0.205070382, -12.40525515, -14.84230392, -13.44208877]
           }]
         }
       }
