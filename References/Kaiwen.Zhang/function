@@ -23,6 +23,7 @@ function randn(sz1, sz2){
             mat.subset(math.index(i,j), z0);
         }
     }
+    return mat;
 }
 
 /*
