@@ -59,9 +59,58 @@ function cumsum(q)
   }
 }
 
-function length(matrix){
+function length(matrix)
+{
     var m = math.size(matrix);
     var row = m.subset(math.index(0));
     var col = m.subset(math.index(1));
     return (Math.max(row,col));
+}
+
+//The likelihood function
+function pe(x)
+{
+  var r = 5;
+  var m = math.size(x);
+  var col = m.subset(math.index(1));
+  for(i=0; i<col; i++){
+    var tem = ((1/math.pow((2*math.pi*r), 1/2))*(math.exp(-(math.pow(x.subset(math.index(0,i)),2))/(2*r))));
+    x.subset(math.index(0,i), tem);
+  }
+  return x;
+}
+
+//The model equation
+function f(x,t)
+{
+  var m = math.size(x);
+
+
+}
+
+//The model equation
+function h(x)
+{
+    var m = math.size(x);
+    var col = m.subset(math.index(1));
+    for(i=0; i<col; i++){
+      var tem = math.pow(x.subset(math.index(0, i)),2)/20;
+      x.subset(math.index(0, i), tem);
+    }
+    return x;
+}
+
+function xhat_PF(f,h,pe,q,p0,m,y){
+  var n = size(p0,1);
+  var x = math.dotMultiply(math.sqrt(p0),randn(n,m));
+
+  for(i=0; i<100; i++){
+    var e = repmat(y.subset(math.index(0,i)), 1, m) - h(x);
+    var q = pe(e);
+    q = q/math.sum(q);
+
+
+
+  }
+
 }
