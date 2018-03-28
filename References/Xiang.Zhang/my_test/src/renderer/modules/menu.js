@@ -50,18 +50,6 @@ module.exports = {
         }
       ]
     }, {
-      label: 'Edit',
-      submenu: [
-        { label: 'Undo', accelerator: 'CmdOrCtrl+Z', selector: 'undo:' },
-        { label: 'Redo', accelerator: 'CmdOrCtrl+Y', selector: 'redo:' },
-        { type: 'separator' },
-        { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
-        { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
-        { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
-        { type: 'separator' },
-        { label: 'Select All', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' }
-      ]
-    }, {
       label: 'View',
       submenu: [
         {
@@ -99,7 +87,17 @@ module.exports = {
         {
           label: 'Website',
           click: function () {
-            shell.openExternal('https://github.com/hiro0218/miikun/')
+            const BrowserWindow = require('electron').remote.BrowserWindow
+            const path = require('path')
+            let win = new BrowserWindow({width: 400, height: 320})
+            win.openDevTools()
+            win.on('closed', function () {
+              win = null
+            })
+            const modalPath = path.join('/Users/apple/Desktop/my_test/src/renderer/modules/test.html')
+            win.loadURL(modalPath)
+            console.log(modalPath)
+            win.show()
           }
         },
         {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <div class='input' v-for="item in mycars">{{item}}<!--@input="onEditorCodeChange"-->
+      <div class='input' v-for = "item in a">{{item}}
 
       </div>
 
@@ -19,6 +19,7 @@ export default {
   name: 'mii-editor',
   data () {
     return {
+      a: matrix.valueOf(),
       mycars: ['2', '3', '4'],
       code: '',
       isPreview: true,
@@ -165,8 +166,8 @@ export default {
       const self = this
       try {
         let error
-
-        fs.writeFile(self.path, JSON.stringify(matrix), function (err) {
+        var json = {'matrix': matrix, 'car': this.mycars}
+        fs.writeFile(self.path, JSON.stringify(json), function (err) {
           error = err
         })
 
@@ -183,15 +184,9 @@ export default {
     setPath (path) {
       this.path = path
     },
-    setEditor (value) {
-      this.$refs.codemirror.editor.setValue(value)
-      this.$refs.codemirror.editor.save()
-    },
     clean () {
       this.setEditor('')
       this.setPath('')
-      this.$refs.codemirror.editor.markClean()
-      this.$refs.codemirror.editor.clearHistory()
     },
     dropFile (file, ext) {
       const self = this
