@@ -104,17 +104,36 @@ function h(x)
     return x;
 }
 
-function xhat_PF(f,h,pe,q,p0,m,y){
+function multiply(x,y)
+{
+  var m = math.size(x);
+  var col = m.subset(math.index(1));
+  var output = math.zeros(1,col);
+  for(i=0; i<col; i++){
+    var tem = math.multiply(x.subset(math.index(0,i)), y.subset(math.index(0,i)));
+    output.subset(math.index(0,i), tem);
+  }
+  return output;
+}
+
+function xhat_PF(f,h,pe,q,p0,m,y)
+{
   var n = size(p0,1);
   var x = math.dotMultiply(math.sqrt(p0),randn(n,m));
-
-  for(i=0; i<100; i++){
-    var e = repmat(y.subset(math.index(0,i)), 1, m) - h(x);
+  var xhat = math.zeros(1,100);
+  for(t=0; t<100; t++){
+    var e = repmat(y.subset(math.index(0,t)), 1, m) - h(x);
     var q = pe(e);
-    q = q/math.sum(q);
+    q = math.divide(q,math.sum(q));
+    xhat.subset(math.index(0,t), math.sum(math.multiply(repmat(q,n,1),x )))
 
 
 
   }
+
+function resampling(q)
+{
+
+}
 
 }
