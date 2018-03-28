@@ -84,8 +84,12 @@ function pe(x)
 function f(x,t)
 {
   var m = math.size(x);
-
-
+  var col = m.subset(math.index(1));
+  for(i=0; i<col; i++){
+    var tem = math.divide(x.subset(math.index(0,i)), 2) + math.multiply(25, math.divide(x.subset(math.index(0,i)), math.add(1, math.pow(x.subset(math.index(0,i)),2)))) + math.multiply(8, math.cos((1.2)*t));
+    x.subset(math.index(0, i), tem);
+  }
+  return x;
 }
 
 //The model equation
