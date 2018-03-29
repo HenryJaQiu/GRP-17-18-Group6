@@ -1,3 +1,14 @@
+function myFunction()
+{
+var x = randn(1,10);
+// // var y = repmat(x,1,1);
+// var y = resampling(x);
+var y = resampling(x);
+document.getElementById("demo1").innerHTML = x;
+document.getElementById("demo2").innerHTML = y;
+//document.getElementById("demo3").innerHTML = z;
+}
+
 function randn(sz1, sz2){
     var mat = math.zeros(sz1, sz2);
     for(var i = 0;i < sz1;i++){
@@ -14,7 +25,7 @@ function randn(sz1, sz2){
     return mat;
 }
 
-size(x, dim){
+function size(x, dim) {
   var m = math.size(x);
   return m.subset(math.index(dim));
 }
@@ -22,17 +33,27 @@ size(x, dim){
 function repmat(mat, num1, num2)
 {
     var temp = mat;
-    var size = math.size(mat);
-    var row = size.subset(math.index(0));
-    var col = size.subset(math.index(1));
-    var output = math.zeros(row * num1, col * num2);
-    for(i=0; i<num1-1; i++){
-      var temp1 = math.concat(temp,mat,0);
+    var siz = math.size(mat);
+    var row = siz.subset(math.index(0));
+    var col = siz.subset(math.index(1));
+    //var output = math.zeros(row * num1, col * num2);
+
+    if(num1 == 1){
+      var temp1 = mat;
+    }else{
+      for(i=0; i<num1-1; i++){
+        var temp1 = math.concat(temp,mat,0);
+      }
     }
-      var temp2 = temp1;
-    for(j=0; j<num2-1; j++){
-      temp2 = math.concat(temp2,temp1,1);
+    var temp2 = temp1;
+    if(num2 == 1){
+      return mat;
+    }else{
+      for(j=0; j<num2-1; j++){
+        temp2 = math.concat(temp2,temp1,1);
+      }
     }
+
     return temp2;
 }
 
@@ -40,10 +61,11 @@ function cumsum(q)
 {
   var size = math.size(q);
   var row = math.subset(size, math.index(0));
+  var col = math.subset(size, math.index(1));
 
   if(row == 1){
     var mat = math.zeros(1, size.subset(math.index(1)));
-    for(i=0; i<math.subset(size, math.index(1)); i++){
+    for(i=0; i<col; i++){
       if(i==0){
         var addition = math.subset(q, math.index(0,0)) + 0;
         mat.subset(math.index(0,0), addition);
@@ -70,7 +92,7 @@ function length(matrix)
 //The likelihood function
 function pe(x)
 {
-  var r = 5;
+  var r = 1;
   var m = math.size(x);
   var col = m.subset(math.index(1));
   for(i=0; i<col; i++){
@@ -104,36 +126,130 @@ function h(x)
     return x;
 }
 
-function multiply(x,y)
+function dotAdd(x,y)
 {
-  var m = math.size(x);
-  var col = m.subset(math.index(1));
-  var output = math.zeros(1,col);
-  for(i=0; i<col; i++){
-    var tem = math.multiply(x.subset(math.index(0,i)), y.subset(math.index(0,i)));
+  var my = math.size(y);
+  var mx = math.size(x);
+  var ycol = my.subset(math.index(1));
+  var xcol = mx.subset(math.index(1));
+  if(xcol == 1){
+    for(i=0; i<ycol; i++){
+      var tem = math.add(x.subset(math.index(0,0)), y.subset(math.index(0,i)));
+      y.subset(math.index(0,i), tem);
+    }
+  }else{
+    for(i=0; i<ycol; i++){
+      var tem = math.add(x.subset(math.index(0,i)), y.subset(math.index(0,i)));
+      y.subset(math.index(0,i), tem);
+    }
+  }
+  return y;
+}
+
+function dotSubtract(x,y){
+  var mx = math.size(x);
+  var my = math.size(y);
+  var xcol = mx.subset(math.index(1));
+  var output = math.zeros(1,xcol);
+//  var xcol = my.subset(math.index(1));
+  for(i=0; i<xcol; i++){
+    var tem = math.subtract(x.subset(math.index(0,i)), y.subset(math.index(0,i)));
     output.subset(math.index(0,i), tem);
   }
   return output;
 }
+//
+// function multiply(x,y)
+// {
+//   var m = math.size(x);
+//   var col = m.subset(math.index(1));
+//   var output = math.zeros(1,col);
+//   for(i=0; i<col; i++){
+//     var tem = math.multiply(x.subset(math.index(0,i)), y.subset(math.index(0,i)));
+//     output.subset(math.index(0,i), tem);
+//   }
+//   return output;
+// }
 
-function xhat_PF(f,h,pe,q,p0,m,y)
+function forx(x, ind)
 {
-  var n = size(p0,1);
-  var x = math.dotMultiply(math.sqrt(p0),randn(n,m));
-  var xhat = math.zeros(1,100);
-  for(t=0; t<100; t++){
-    var e = repmat(y.subset(math.index(0,t)), 1, m) - h(x);
-    var q = pe(e);
-    q = math.divide(q,math.sum(q));
-    xhat.subset(math.index(0,t), math.sum(math.multiply(repmat(q,n,1),x )))
-
-
-
+  var mx = math.size(x);
+  var mind = math.size(ind);
+  var xcol = mx.subset(math.index(1));
+  for(i=0; i<xcol; i++){
+    var tem1 = ind.subset(math.index(0,i));
+    var tem2 = x.subset(math.index(0,tem1));
+    x.subset(math.index(0,i), tem2);
   }
+  return x;
+}
 
 function resampling(q)
 {
-
+    var qc = cumsum(q);
+    var m = length(q);
+    var u = math.dotDivide(dotAdd(math.matrix([[math.random(1)]]), math.matrix([math.range(0,m)])), m);
+    var i = math.zeros(1,m);
+    var k = 0;
+    for(j=0; j<m; j++){
+      //alert(k);
+      while(qc.subset(math.index(0,k)) < u.subset(math.index(0,j)))
+      {
+          k = k + 1;
+        }
+        if(k<m){
+          i.subset(math.index(0,j), k);
+        }
+        else{
+          break;
+        }
+      }
+      return i;
 }
 
+
+
+
+
+function xhat_PF(q,p0,m,y)
+{
+  var n = size(math.matrix([[p0]]),1);
+  var x = math.dotMultiply(math.sqrt(p0),randn(n,m));
+  var xhat = math.zeros(1,100);
+  //alert(y.subset(math.index(0,1)));
+  for(t=0; t<100; t++){
+    var e = dotSubtract(repmat(math.matrix([[y.subset(math.index(0,t))]]), 1, m), h(x));
+    var q = pe(e);
+    q = math.divide(q,math.sum(q));
+    //alert(q);
+    xhat.subset(math.index(0,t), math.sum(math.dotMultiply(repmat(q,n,1), x)));
+    var ind = resampling(q);
+    //alert(ind);
+    x = forx(x,ind);
+  //  x = math.matrix([[x.subset(math.index(0, ind))]]);
+    x = dotAdd(f(x,t), math.dotMultiply(math.sqrt(q), randn(n,m)));
+  }
+  return xhat;
+}
+
+function testPF()
+{
+    var m = 10;
+    var p0 = 5;
+    var q = 10;
+    var r = 1;
+    var x = math.zeros(1,100);
+    var y = math.zeros(1,100);
+    x.subset(math.index(0,0), math.multiply(math.sqrt(p0), randn(1,1).subset(math.index(0,0))));
+    y.subset(math.index(0,0), (h(math.matrix([[x.subset(math.index(0,0))]])).subset(math.index(0,0)) + math.sqrt(r) + randn(1,1).subset(math.index(0,0))));
+
+    for(t=1; t<100; t++){
+      x.subset(math.index(0,t), (f(math.matrix([[x.subset(math.index(0,t-1))]]), (t-1)).subset(math.index(0,0)) + math.multiply(math.sqrt(q), randn(1,1).subset(math.index(0,0)))));
+      y.subset(math.index(0,t), (h(math.matrix([[x.subset(math.index(0,t))]])).subset(math.index(0,0)) + math.multiply(math.sqrt(r), randn(1,1).subset(math.index(0,0)))));
+    }
+    var xTrue = x;
+    //alert(xTrue);
+    var xhat = xhat_PF(q,p0,m,y);
+
+    return xhat;
 }
