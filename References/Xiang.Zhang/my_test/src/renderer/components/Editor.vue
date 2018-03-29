@@ -14,13 +14,13 @@ const fs = require('fs')
 const math = require('mathjs')
 const Menu = require('../modules/menu.js')
 var matrix = math.matrix([[7, 1], [-2, 3]])
+var mycars = [2, 3, 4]
 
 export default {
   name: 'mii-editor',
   data () {
     return {
       a: matrix.valueOf(),
-      mycars: ['2', '3', '4'],
       code: '',
       isPreview: true,
       input: '',
@@ -87,7 +87,7 @@ export default {
         title: 'Open Dialog',
         filters: [{
           name: 'Documents',
-          extensions: ['txt', 'json']
+          extensions: ['json']
         }],
         properties: ['openFile']
       }, function (item) {
@@ -102,7 +102,10 @@ export default {
       fs.readFile(path, 'utf8', function (err, content) {
         if (err === null) {
           var data = JSON.parse(content)
-          matrix = data
+          var ob = data.matrix
+          console.log(mycars)
+          matrix = ob
+          mycars = data.car
           self.setPath(path)
         } else {
           self.openDialog('error', err.toString())
@@ -166,8 +169,8 @@ export default {
       const self = this
       try {
         let error
-        var json = {'matrix': matrix, 'car': this.mycars}
-        fs.writeFile(self.path, JSON.stringify(json), function (err) {
+        var json = {'matrix': matrix, 'car': mycars}
+        fs.writeFile(self.path, JSON.stringify(json, null, 4), function (err) {
           error = err
         })
 
