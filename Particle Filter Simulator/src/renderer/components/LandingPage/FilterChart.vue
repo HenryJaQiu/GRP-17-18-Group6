@@ -116,32 +116,6 @@
             detail: msg
           })
         },
-        newFile () {
-          const editor = this.$refs.codemirror.editor
-
-          // is newFile
-          if (!this.path && editor.isClean()) {
-            return
-          }
-
-          // is not modify
-          if (this.path && !editor.isClean()) {
-            this.clean()
-            return
-          }
-
-          let response = this.modifyDialog()
-          switch (response) {
-            // Yes
-            case 0:
-              this.saveFile()
-              break
-              // No
-            case 1:
-              this.clean()
-              break
-          }
-        },
         openFile () {
           const self = this
           const remote = this.$electron.remote
@@ -193,39 +167,10 @@
 
           return savePath
         },
-        modifyDialog () {
-          const remote = this.$electron.remote
-          const dialog = remote.dialog
-          const browserWindow = remote.BrowserWindow
-          const focusedWindow = browserWindow.getFocusedWindow()
-
-          let response = dialog.showMessageBox(focusedWindow, {
-            title: '',
-            type: 'warning',
-            buttons: ['Yes', 'No', 'Cancel'],
-            detail: 'Wolud you like to save changes?'
-          })
-
-          return response
-        },
         saveFile () {
-          if (this.path) {
-            this.setPath(this.path)
-            this.writeFile()
-          } else {
-            let savePath = this.saveAsDialog()
-            if (savePath) {
-              this.setPath(savePath)
-              this.writeFile()
-            }
-          }
-        },
-        saveAs () {
-          const self = this
           let savePath = this.saveAsDialog()
-
           if (savePath) {
-            self.setPath(savePath)
+            this.setPath(savePath)
             this.writeFile()
           }
         },
@@ -254,24 +199,6 @@
         clean () {
           this.setEditor('')
           this.setPath('')
-        },
-        dropFile (file, ext) {
-          const self = this
-          const remote = this.$electron.remote
-          const dialog = remote.dialog
-          const browserWindow = remote.BrowserWindow
-          const focusedWindow = browserWindow.getFocusedWindow()
-
-          if (file.type === 'text/plain' || file.type === 'application/text' || ext === 'txt' || ext === 'md') {
-            self.readFile(file.path)
-          } else {
-            dialog.showMessageBox(focusedWindow, {
-              title: 'error',
-              type: 'error',
-              buttons: ['OK'],
-              detail: 'This file format is not supported.'
-            })
-          }
         },
         openLinkExternal () {
           const electron = this.$electron

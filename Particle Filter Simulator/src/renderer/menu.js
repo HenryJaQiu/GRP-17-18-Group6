@@ -20,21 +20,14 @@ module.exports = {
       label: 'File',
       submenu: [
         {
-          label: 'New',
-          accelerator: 'CmdOrCtrl+N',
-          click: function () {
-            self.newFile()
-          }
-        },
-        {
-          label: 'Open',
+          label: 'Import json file',
           accelerator: 'CmdOrCtrl+O',
           click: function () {
             self.openFile()
           }
         },
         {
-          label: 'Save',
+          label: 'Export data',
           accelerator: 'CmdOrCtrl+S',
           click: function () {
             self.saveFile()
@@ -51,25 +44,7 @@ module.exports = {
     }, {
       label: 'View',
       submenu: [
-        {
-          label: 'Toggle Preview Panel',
-          type: 'checkbox',
-          checked: true,
-          // accelerator: '',
-          click: function (item, focusedWindow) {
-            self.togglePreview()
-          }
-        },
         { type: 'separator' },
-        {
-          label: 'Toggle Full Screen',
-          accelerator: (function () {
-            return OSX ? 'Ctrl+Command+F' : 'F11'
-          })(),
-          click: function (item, focusedWindow) {
-            focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
-          }
-        },
         {
           label: 'Always on Top',
           accelerator: 'CmdOrCtrl+Shift+T',
