@@ -12,7 +12,7 @@
       <label for="process_Noise_Covariance">Process Noise Covariance: {{process_Noise_Covariance}}</label><br>
       <input id="process_Noise_Covariance" type="range" min="1" max="500" v-model="process_Noise_Covariance">
       <br><br>
-      <label for="measurement_Noise_Covariance">Measurement Noise Covariance: {{measurement_Noise_Covariance}}</label><br>
+      <label for="measurement_Noise_Covariance">Measurement_Noise_Covariance: {{measurement_Noise_Covariance}}</label><br>
       <input id="measurement_Noise_Covariance" type="range" min="1" max="500" v-model="measurement_Noise_Covariance">
       <br><br>
   </div>
@@ -21,22 +21,16 @@
 <script>
   import Algorithm from './Algorithm.js'
 
-  var algorithmA = null
-  var particlesA = 500
-  var initialNoiseCovarianceA = 5
-  var processNoiseCovarianceA = 10
-  var measurementNoiseCovarianceA = 1
-
   export default {
     name: 'algorithm',
 
     data () {
       return {
-        algorithm: algorithmA,
-        particles: particlesA,
-        initial_Noise_Covariance: initialNoiseCovarianceA,
-        process_Noise_Covariance: processNoiseCovarianceA,
-        measurement_Noise_Covariance: measurementNoiseCovarianceA
+        algorithm: null,
+        particles: 500,
+        initial_Noise_Covariance: 5,
+        process_Noise_Covariance: 10,
+        measurement_Noise_Covariance: 1
       }
     },
 
@@ -54,4 +48,3 @@
 </script>
 
 <style type="text/css"></style>
-

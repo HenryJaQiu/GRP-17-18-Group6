@@ -3,7 +3,7 @@
     <main>
       <div class="left-side">
         <span class="title">
-          Particle Filter Simulator
+          
         </span>
         <filter-chart></filter-chart>
       </div>
@@ -23,23 +23,16 @@
     name: 'landing-page',
     components: { FilterChart, ParameterController },
     methods: {
-      open (link) {
-        this.$electron.shell.openExternal(link)
-      }
     }
   }
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-
-  body { font-family: 'Source Sans Pro', sans-serif; }
 
   #wrapper {
     background:
