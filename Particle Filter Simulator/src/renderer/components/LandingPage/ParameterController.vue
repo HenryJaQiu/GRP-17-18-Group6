@@ -49,7 +49,7 @@
         console.log('particles:' + this.particles)
         console.log('initial_Noise_Covariance:' + this.initial_Noise_Covariance)
         console.log('process_Noise_Covariance:' + this.process_Noise_Covariance)
-        console.log('measurement_Noise_Covariance' + this.measurement_Noise_Covariance)
+        console.log('measurement_Noise_Covariance:' + this.measurement_Noise_Covariance)
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         alert(this.algorithm.start())
       }
