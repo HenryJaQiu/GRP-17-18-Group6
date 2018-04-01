@@ -213,7 +213,7 @@ function xhatPF (q, p0, m, y) {
 }
 
 function testPF (p, inc, pnc, mnc) {
-  var m = p // Number of particles
+  var m = parseInt(p) // Number of particles
   var p0 = inc // Initial noise covariance
   var q = pnc // Process noise covariance
   var r = mnc // Measurement noise covariance

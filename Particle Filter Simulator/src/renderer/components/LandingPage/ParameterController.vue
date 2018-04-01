@@ -3,15 +3,19 @@
     <div class="title">Parameter Controller</div><br>
       <button v-on:click="startAlgorithm">Start</button><br>
       <h2>Settings</h2><br>
+
       <label for="particles">Particles: {{particles}}</label><br>
       <input id="particles" type="range" min="1" max="500" v-model="particles">
       <br><br>
+
       <label for="initial_Noise_Covariance">Initial Noise Covariance: {{initial_Noise_Covariance}}</label><br>
       <input id="initial_Noise_Covariance" type="range" min="1" max="500" v-model="initial_Noise_Covariance">
       <br><br>
+
       <label for="process_Noise_Covariance">Process Noise Covariance: {{process_Noise_Covariance}}</label><br>
       <input id="process_Noise_Covariance" type="range" min="1" max="500" v-model="process_Noise_Covariance">
       <br><br>
+
       <label for="measurement_Noise_Covariance">Measurement Noise Covariance: {{measurement_Noise_Covariance}}</label><br>
       <input id="measurement_Noise_Covariance" type="range" min="1" max="500" v-model="measurement_Noise_Covariance">
       <br><br>
@@ -22,7 +26,7 @@
   import Algorithm from './Algorithm.js'
 
   var algorithmA = null
-  var particlesA = 500
+  var particlesA = 100
   var initialNoiseCovarianceA = 5
   var processNoiseCovarianceA = 10
   var measurementNoiseCovarianceA = 1
@@ -42,10 +46,10 @@
 
     methods: {
       startAlgorithm () {
-        alert(this.particles)
-        alert(this.initial_Noise_Covariance)
-        alert(this.process_Noise_Covariance)
-        alert(this.measurement_Noise_Covariance)
+        console.log('particles:' + this.particles)
+        console.log('initial_Noise_Covariance:' + this.initial_Noise_Covariance)
+        console.log('process_Noise_Covariance:' + this.process_Noise_Covariance)
+        console.log('measurement_Noise_Covariance' + this.measurement_Noise_Covariance)
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         alert(this.algorithm.start())
       }
