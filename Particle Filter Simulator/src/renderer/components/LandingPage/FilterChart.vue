@@ -94,6 +94,7 @@
                 width: 1,
                 type: 'dashed'
               },
+              data: matrixTRUE
             }]
           }
         }
