@@ -26,7 +26,6 @@
     components: { FilterChart, ParameterController },
     methods: {
       refreshChart () {
-        console.log('tran2')
         var that = this
         that.$refs.editChart.drawChart()
       }
