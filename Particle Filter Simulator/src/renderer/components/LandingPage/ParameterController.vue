@@ -24,13 +24,7 @@
 
 <script>
   import Algorithm from './Algorithm.js'
-
-  var algorithmA = null
-  var particlesA = 100
-  var initialNoiseCovarianceA = 5
-  var processNoiseCovarianceA = 10
-  var measurementNoiseCovarianceA = 1
-
+  
   export default {
     name: 'algorithm',
 
