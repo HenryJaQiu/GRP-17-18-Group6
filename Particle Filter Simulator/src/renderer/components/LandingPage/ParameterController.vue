@@ -36,26 +36,33 @@
 
     data () {
       return {
-        algorithm: algorithmA,
-        particles: particlesA,
-        initial_Noise_Covariance: initialNoiseCovarianceA,
-        process_Noise_Covariance: processNoiseCovarianceA,
-        measurement_Noise_Covariance: measurementNoiseCovarianceA
+        algorithm: null,
+        particles: 100,
+        initial_Noise_Covariance: 5,
+        process_Noise_Covariance: 10,
+        measurement_Noise_Covariance: 1
       }
     },
 
     methods: {
+      incrt () {
+        this.$store.commit('increment')
+      },
+
       startAlgorithm () {
-        console.log('particles:' + this.particles)
-        console.log('initial_Noise_Covariance:' + this.initial_Noise_Covariance)
-        console.log('process_Noise_Covariance:' + this.process_Noise_Covariance)
-        console.log('measurement_Noise_Covariance:' + this.measurement_Noise_Covariance)
+        // this.removePreviousAlgorithm()
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         alert(this.algorithm.start())
+        console.log(this.$store.state.matrix)
+        this.incrt()
+        // console.log(this.$store.state.matrix)
       }
+      //
+      // removePreviousAlgorithm () {
+      //     this.algorithm = null
+      //     }
     }
   }
 </script>
 
 <style type="text/css"></style>
-

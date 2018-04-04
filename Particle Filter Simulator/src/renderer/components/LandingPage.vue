@@ -3,7 +3,7 @@
     <main>
       <div class="left-side">
         <span class="title">
-          
+
         </span>
         <filter-chart></filter-chart>
       </div>
@@ -18,11 +18,11 @@
 <script>
   import FilterChart from './LandingPage/FilterChart'
   import ParameterController from './LandingPage/ParameterController'
-  import store from '../vuex/store'
-  
+  // import store from '../vuex/store'
+
   export default {
     name: 'landing-page',
-    store,
+    // store,
     components: { FilterChart, ParameterController },
     methods: {
     }
