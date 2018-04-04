@@ -5,16 +5,31 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  state: {
-    matrix: 0
-  },
-
-  mutations: {
-    increment: state => state.matrix++
-  }
-})
-
-export default {
-  store
+const state = {
+  matrix: 0
 }
+
+const mutations = {
+  setMatrix (state, matrix) {
+    state.matrix = matrix
+  }
+}
+
+const getters = {
+  getMatrix: state => {
+    return state.matrix
+  }
+}
+
+const actions = {
+  setMatrix (context, data) {
+    context.commit('setMatrix', data)
+  }
+}
+
+export default new Vuex.Store({
+  state,
+  mutations,
+  getters,
+  actions
+})

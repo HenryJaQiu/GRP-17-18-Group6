@@ -9,22 +9,23 @@
       <br><br>
 
       <label for="initial_Noise_Covariance">Initial Noise Covariance: {{initial_Noise_Covariance}}</label><br>
-      <input id="initial_Noise_Covariance" type="range" min="1" max="500" v-model="initial_Noise_Covariance">
+      <input id="initial_Noise_Covariance" type="range" min="1" max="50" v-model="initial_Noise_Covariance">
       <br><br>
 
       <label for="process_Noise_Covariance">Process Noise Covariance: {{process_Noise_Covariance}}</label><br>
-      <input id="process_Noise_Covariance" type="range" min="1" max="500" v-model="process_Noise_Covariance">
+      <input id="process_Noise_Covariance" type="range" min="1" max="50" v-model="process_Noise_Covariance">
       <br><br>
 
       <label for="measurement_Noise_Covariance">Measurement Noise Covariance: {{measurement_Noise_Covariance}}</label><br>
-      <input id="measurement_Noise_Covariance" type="range" min="1" max="500" v-model="measurement_Noise_Covariance">
+      <input id="measurement_Noise_Covariance" type="range" min="1" max="50" v-model="measurement_Noise_Covariance">
       <br><br>
+      <div>{{ count }}</div>
   </div>
 </template>
 
 <script>
   import Algorithm from './Algorithm.js'
-  
+
   export default {
     name: 'algorithm',
 
@@ -38,16 +39,22 @@
       }
     },
 
+    computed: {
+      count () {
+        return this.$store.state.matrix
+      }
+    },
+
     methods: {
       incrt () {
-        this.$store.commit('increment')
+        this.$store.commit('setMatrix', 10)
       },
 
       startAlgorithm () {
         // this.removePreviousAlgorithm()
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         alert(this.algorithm.start())
-        console.log(this.$store.state.matrix)
+        // console.log(this.$store.state.matrix)
         this.incrt()
         // console.log(this.$store.state.matrix)
       }
