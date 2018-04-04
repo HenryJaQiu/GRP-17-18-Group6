@@ -6,24 +6,34 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  matrix: 0
+  matrixXhat: null,
+  matrixTrue: null
 }
 
 const mutations = {
-  setMatrix (state, matrix) {
-    state.matrix = matrix
+  setMatrixXhat (state, matrixXhat) {
+    state.matrixXhat = matrixXhat
+  },
+  setMatrixTrue (state, matrixTrue) {
+    state.matrixTrue = matrixTrue
   }
 }
 
 const getters = {
-  getMatrix: state => {
-    return state.matrix
+  getMatrixXhat: state => {
+    return state.matrixXhat
+  },
+  getMatrixTrue: state => {
+    return state.matrixTrue
   }
 }
 
 const actions = {
-  setMatrix (context, data) {
-    context.commit('setMatrix', data)
+  setMatrixXhat (context, data) {
+    context.commit('setMatrixXhat', data)
+  },
+  setMatrixTrue (context, data) {
+    context.commit('setMatrixTrue', data)
   }
 }
 

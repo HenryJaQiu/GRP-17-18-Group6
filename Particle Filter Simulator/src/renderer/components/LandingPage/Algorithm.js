@@ -1,3 +1,4 @@
+import store from '../../vuex/store'
 const math = require('mathjs')
 
 class Algorithm {
@@ -228,6 +229,7 @@ function testPF (p, inc, pnc, mnc) {
   }
   // var xTrue = x
   // alert(xTrue);
+  store.commit('setMatrixTrue', x)
   var xhat = xhatPF(q, p0, m, y)
 
   return xhat

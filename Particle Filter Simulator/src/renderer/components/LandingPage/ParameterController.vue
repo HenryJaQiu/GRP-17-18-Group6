@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>{{ count_1 }}</div><br>
     <div class="title">Parameter Controller</div><br>
       <button v-on:click="startAlgorithm">Start</button><br>
       <h2>Settings</h2><br>
@@ -19,7 +20,7 @@
       <label for="measurement_Noise_Covariance">Measurement Noise Covariance: {{measurement_Noise_Covariance}}</label><br>
       <input id="measurement_Noise_Covariance" type="range" min="1" max="50" v-model="measurement_Noise_Covariance">
       <br><br>
-      <div>{{ count }}</div>
+      <div>{{ count_2 }}</div>
   </div>
 </template>
 
@@ -40,23 +41,30 @@
     },
 
     computed: {
-      count () {
-        return this.$store.state.matrix
+      count_1 () {
+        return this.$store.state.matrixXhat
+      },
+      count_2 () {
+        return this.$store.state.matrixTrue
       }
     },
 
     methods: {
-      incrt () {
-        this.$store.commit('setMatrix', 10)
+      incrt (mat) {
+        this.$store.commit('setMatrixXhat', mat)
       },
+
+      // consoleF () {
+      //   console.log(this.$store.getters)
+      // },
 
       startAlgorithm () {
         // this.removePreviousAlgorithm()
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         alert(this.algorithm.start())
         // console.log(this.$store.state.matrix)
-        this.incrt()
-        // console.log(this.$store.state.matrix)
+        this.incrt(this.algorithm.start())
+        // this.consoleF()
       }
       //
       // removePreviousAlgorithm () {
