@@ -13,6 +13,14 @@ class Algorithm {
   }
 }
 
+function convertDTO (mat) {
+  var siz = math.subset(mat.size(mat), math.index(1))
+  var output = math.range(0, siz)
+  for(let i = 0; i < siz; i++) {
+    output.subset(math.indxe(i), mat.subset(math.index(0,i)))
+  }
+}
+
 function randn (sz1, sz2) {
   var mat = math.zeros(sz1, sz2)
   for (var i = 0; i < sz1; i++) {
