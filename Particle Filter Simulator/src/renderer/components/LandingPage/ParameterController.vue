@@ -64,6 +64,9 @@
         alert(this.algorithm.start())
         // console.log(this.$store.state.matrix)
         this.incrt(this.algorithm.start())
+
+        console.log('tran1')
+        this.$parent.refreshChart()
         // this.consoleF()
       }
       //

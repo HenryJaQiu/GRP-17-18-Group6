@@ -5,7 +5,7 @@
         <span class="title">
 
         </span>
-        <filter-chart></filter-chart>
+        <filter-chart ref="editChart"></filter-chart>
       </div>
 
       <div class="right-side">
@@ -25,6 +25,11 @@
     store,
     components: { FilterChart, ParameterController },
     methods: {
+      refreshChart () {
+        console.log('tran2')
+        var that = this
+        that.$refs.editChart.drawChart()
+      }
     }
   }
 </script>
