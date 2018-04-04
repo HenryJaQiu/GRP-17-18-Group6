@@ -90,37 +90,39 @@ function length (matrix) {
 }
 
 // The likelihood function
-function pe (x) {
-  var r = 1
+function pe (x, R) {
   var m = math.size(x)
   var col = m.subset(math.index(1))
+  var output = math.zeros(1, col)
   for (let i = 0; i < col; i++) {
-    var tem = ((1 / math.pow((2 * math.pi * r), 1 / 2)) * (math.exp(-(math.pow(x.subset(math.index(0, i)), 2)) / (2 * r))))
-    x.subset(math.index(0, i), tem)
+    var tem = ((1 / math.pow((2 * math.pi * R), 1 / 2)) * (math.exp(-(math.pow(x.subset(math.index(0, i)), 2)) / (2 * R))))
+    output.subset(math.index(0, i), tem)
   }
-  return x
+  return output
 }
 
 // The model equation
 function f (x, t) {
   var m = math.size(x)
   var col = m.subset(math.index(1))
+  var output = math.zeros(1, col)
   for (let i = 0; i < col; i++) {
     var tem = math.divide(x.subset(math.index(0, i)), 2) + math.multiply(25, math.divide(x.subset(math.index(0, i)), math.add(1, math.pow(x.subset(math.index(0, i)), 2)))) + math.multiply(8, math.cos((1.2) * t))
-    x.subset(math.index(0, i), tem)
+    output.subset(math.index(0, i), tem)
   }
-  return x
+  return output
 }
 
 // The model equation
 function h (x) {
   var m = math.size(x)
   var col = m.subset(math.index(1))
+  var output = math.zeros(1, col)
   for (let i = 0; i < col; i++) {
     var tem = math.pow(x.subset(math.index(0, i)), 2) / 20
-    x.subset(math.index(0, i), tem)
+    output.subset(math.index(0, i), tem)
   }
-  return x
+  return output
 }
 
 function dotAdd (x, y) {
@@ -181,12 +183,12 @@ function forx (x, ind) {
 
 function resampling (q) {
   var qc = cumsum(q)
-  var m = length(q)
-  var u = math.dotDivide(dotAdd(math.matrix([[math.random(1)]]), math.matrix([math.range(0, m)])), m)
-  var i = math.zeros(1, m)
+  var M = length(q)
+  var u = math.dotDivide(dotAdd(math.matrix([[math.random(1)]]), math.matrix([math.range(0, M)])), M)
+  var i = math.zeros(1, M)
   var k = 0
-  for (let j = 0; j < m; j++) {
-    while ((k < m - 1) && (qc.subset(math.index(0, k)) < u.subset(math.index(0, j)))) {
+  for (let j = 0; j < M; j++) {
+    while ((k < M - 1) && (qc.subset(math.index(0, k)) < u.subset(math.index(0, j)))) {
       k = k + 1
     }
     i.subset(math.index(0, j), k)
@@ -194,43 +196,44 @@ function resampling (q) {
   return i
 }
 
-function xhatPF (q, p0, m, y) {
-  var n = size(math.matrix([[p0]]), 1)
-  var x = math.dotMultiply(math.sqrt(p0), randn(n, m))
+function xhatPF (Q, P0, M, y) {
+  var n = size(math.matrix([[P0]]), 1)
+  var x = math.dotMultiply(math.sqrt(P0), randn(n, M))
   var xhat = math.zeros(1, 100)
+  var q = null
   // alert(y.subset(math.index(0,1)));
   for (let t = 0; t < 100; t++) {
-    var e = dotSubtract(repmat(math.matrix([[y.subset(math.index(0, t))]]), 1, m), h(x))
-    q = pe(e)
+    var e = dotSubtract(repmat(math.matrix([[y.subset(math.index(0, t))]]), 1, M), h(x))
+    q = pe(e, 1)
     q = math.divide(q, math.sum(q))
     xhat.subset(math.index(0, t), math.sum(math.dotMultiply(repmat(q, n, 1), x)))
     var ind = resampling(q)
     // alert(ind);
     x = forx(x, ind)
     //  x = math.matrix([[x.subset(math.index(0, ind))]]);
-    x = dotAdd(f(x, t), math.dotMultiply(math.sqrt(q), randn(n, m)))
+    x = dotAdd(f(x, t), math.dotMultiply(math.sqrt(Q), randn(n, M)))
   }
   return xhat
 }
 
 function testPF (p, inc, pnc, mnc) {
-  var m = parseInt(p) // Number of particles
-  var p0 = inc // Initial noise covariance
-  var q = pnc // Process noise covariance
-  var r = mnc // Measurement noise covariance
+  var M = parseInt(p) // Number of particles
+  var P0 = inc // Initial noise covariance
+  var Q = pnc // Process noise covariance
+  var R = mnc // Measurement noise covariance
   var x = math.zeros(1, 100)
   var y = math.zeros(1, 100)
-  x.subset(math.index(0, 0), math.multiply(math.sqrt(p0), randn(1, 1).subset(math.index(0, 0))))
-  y.subset(math.index(0, 0), (h(math.matrix([[x.subset(math.index(0, 0))]])).subset(math.index(0, 0)) + math.sqrt(r) + randn(1, 1).subset(math.index(0, 0))))
+  x.subset(math.index(0, 0), math.multiply(math.sqrt(P0), randn(1, 1).subset(math.index(0, 0))))
+  y.subset(math.index(0, 0), (h(math.matrix([[x.subset(math.index(0, 0))]])).subset(math.index(0, 0)) + math.sqrt(R) + randn(1, 1).subset(math.index(0, 0))))
 
   for (let t = 1; t < 100; t++) {
-    x.subset(math.index(0, t), (f(math.matrix([[x.subset(math.index(0, t - 1))]]), (t - 1)).subset(math.index(0, 0)) + math.multiply(math.sqrt(q), randn(1, 1).subset(math.index(0, 0)))))
-    y.subset(math.index(0, t), (h(math.matrix([[x.subset(math.index(0, t))]])).subset(math.index(0, 0)) + math.multiply(math.sqrt(r), randn(1, 1).subset(math.index(0, 0)))))
+    x.subset(math.index(0, t), (f(math.matrix([[x.subset(math.index(0, t - 1))]]), (t - 1)).subset(math.index(0, 0)) + math.multiply(math.sqrt(Q), randn(1, 1).subset(math.index(0, 0)))))
+    y.subset(math.index(0, t), (h(math.matrix([[x.subset(math.index(0, t))]])).subset(math.index(0, 0)) + math.multiply(math.sqrt(R), randn(1, 1).subset(math.index(0, 0)))))
   }
   // var xTrue = x
   // alert(xTrue);
   store.commit('setMatrixTrue', x)
-  var xhat = xhatPF(q, p0, m, y)
+  var xhat = xhatPF(Q, P0, M, y)
 
   return xhat
 }

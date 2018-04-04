@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>{{ count_1 }}</div><br>
+    <!-- <div>{{ count_1 }}</div><br> -->
     <div class="title">Parameter Controller</div><br>
       <button v-on:click="startAlgorithm">Start</button><br>
       <h2>Settings</h2><br>
@@ -20,7 +20,7 @@
       <label for="measurement_Noise_Covariance">Measurement Noise Covariance: {{measurement_Noise_Covariance}}</label><br>
       <input id="measurement_Noise_Covariance" type="range" min="1" max="50" v-model="measurement_Noise_Covariance">
       <br><br>
-      <div>{{ count_2 }}</div>
+      <!-- <div>{{ count_2 }}</div> -->
   </div>
 </template>
 
@@ -61,7 +61,7 @@
       startAlgorithm () {
         // this.removePreviousAlgorithm()
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
-        alert(this.algorithm.start())
+        // alert(this.algorithm.start())
         // console.log(this.$store.state.matrix)
         this.incrt(this.algorithm.start())
         this.$parent.refreshChart()
