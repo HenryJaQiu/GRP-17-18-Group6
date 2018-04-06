@@ -1,7 +1,5 @@
+import store from './vuex/store.js'
 const fs = require('fs')
-const math = require('mathjs')
-var matrix = math.matrix([[7, 1], [-2, 3]])
-var mycars = [2, 3, 4]
 var path = ''
 
 function openDialog (type, msg) {
@@ -42,10 +40,9 @@ function readFile (path) {
   fs.readFile(path, 'utf8', function (err, content) {
     if (err === null) {
       var data = JSON.parse(content)
-      var ob = data.matrix
-      console.log(mycars)
-      matrix = ob
-      mycars = data.car
+      store.dispatch('setMatrixXhat', data.xhat)
+      store.dispatch('setMatrixTrue', data.xTrue)
+      console.log(data.xTrue)
       setPath(path)
     } else {
       openDialog('error', err.toString())
@@ -80,7 +77,9 @@ function saveFile () {
 function writeFile () {
   try {
     let error
-    var json = {'matrix': matrix, 'car': mycars}
+    console.log(store)
+    var json = { xTrue: store.getters.getMatrixTrue, xhat: store.getters.getMatrixXhat }
+    // console.log(json)
     fs.writeFile(path, JSON.stringify(json, null, 4), function (err) {
       error = err
     })
@@ -89,7 +88,7 @@ function writeFile () {
       return true
     }
   } catch (e) {
-    openDialog('error', e)
+    openDialog('error', e.toString())
     return false
   }
 

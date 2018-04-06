@@ -23,12 +23,6 @@ template.push({
       click: function () {
         saveFile()
       }
-    },
-    {
-      label: 'Save as',
-      accelerator: 'CmdOrCtrl+Shift+S',
-      click: function () {
-      }
     }
   ]
 }, {
