@@ -106,7 +106,6 @@
         this.option1.series[1].data = this.convertDTO(this.$store.getters.getMatrixTrue)
       },
       drawChart () {
-        console.log('tran3')
         this.loadMatrix()
         this.myChart.setOption(this.option1)
       },
