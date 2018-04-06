@@ -9,7 +9,7 @@
       </div>
 
       <div class="right-side">
-        <parameter-controller></parameter-controller>
+        <parameter-controller ref="initMatrix"></parameter-controller>
       </div>
     </main>
   </div>
@@ -25,9 +25,15 @@
     store,
     components: { FilterChart, ParameterController },
     methods: {
+      // After click 'start'
       refreshChart () {
         var that = this
         that.$refs.editChart.drawChart()
+      },
+      // Init data & chart
+      initData () {
+        var that = this
+        that.$refs.initMatrix.startAlgorithm()
       }
     }
   }

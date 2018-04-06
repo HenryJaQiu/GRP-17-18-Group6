@@ -19,6 +19,7 @@
     data () {
       return {
         echarts: {},
+        // echart options
         option1: {
           xAxis: {
             data: matrixSpace
@@ -37,7 +38,7 @@
             }
           ],
           tooltip: {
-            // axisPointer 指示器
+            // axisPointer
             show: true,
             trigger: 'item',
             axisPointer: {
@@ -92,7 +93,7 @@
 
     mounted () {
       this.initChart()
-      this.drawChart()
+      this.$parent.initData()
     },
     methods: {
       initChart () {
@@ -100,8 +101,8 @@
         this.myChart = this.echarts.init(document.getElementById('myChart'))
       },
       loadMatrix () {
-        console.log(this.convertDTO(this.$store.getters.getMatrixXhat))
-        console.log(this.convertDTO(this.$store.getters.getMatrixTrue))
+        // console.log(this.convertDTO(this.$store.getters.getMatrixXhat))
+        // console.log(this.convertDTO(this.$store.getters.getMatrixTrue))
         this.option1.series[0].data = this.convertDTO(this.$store.getters.getMatrixXhat)
         this.option1.series[1].data = this.convertDTO(this.$store.getters.getMatrixTrue)
       },
@@ -109,6 +110,7 @@
         this.loadMatrix()
         this.myChart.setOption(this.option1)
       },
+      // DenseMatrix to Array
       convertDTO (mat) {
         var matSize = math.subset(math.size(mat), math.index(1))
         var matDTO = Array(matSize)
