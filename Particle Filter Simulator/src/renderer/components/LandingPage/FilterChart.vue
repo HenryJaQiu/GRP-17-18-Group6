@@ -58,7 +58,10 @@
                 readOnly: true
               },
               restore: {},
-              saveAsImage: {}
+              saveAsImage: {
+                name: 'FilterImage',
+                excludeComponents: ['dataZoom', 'toolbox']
+              }
             }
           },
           series: [{
@@ -134,5 +137,7 @@
   .chart {
     width: 450px;
     height: 350px;
+    margin-left: -11%;
+    margin-top: 5%
   }
 </style>

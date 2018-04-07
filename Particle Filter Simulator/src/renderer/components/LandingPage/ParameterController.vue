@@ -1,32 +1,31 @@
 <template>
   <div>
     <!-- <div>{{ count_1 }}</div><br> -->
-    <div class="controller">Parameter Controller</div><br>
+    <div class="controller">Parameter Settings</div><br>
       <div class="clicker">
         <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
-        <button class='btn btn-primary' v-on:click="chartRefresh">Refresh</button><br>
+        <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button><br>
       </div>
       <br>
 
-      <h3>Settings</h3><br>
       <div class="slider">
         <label for="particles">Particles: {{particles}}</label><br>
         <input id="particles" type="range" min="1" max="500" v-model="particles">
-        <br><br>
+        <br>
 
         <label for="initial_Noise_Covariance">Initial Noise Covariance: {{initial_Noise_Covariance}}</label><br>
         <input id="initial_Noise_Covariance" type="range" min="1" max="50" v-model="initial_Noise_Covariance">
-        <br><br>
+        <br>
 
         <label for="process_Noise_Covariance">Process Noise Covariance: {{process_Noise_Covariance}}</label><br>
         <input id="process_Noise_Covariance" type="range" min="1" max="50" v-model="process_Noise_Covariance">
-        <br><br>
+        <br>
 
         <label for="measurement_Noise_Covariance">Measurement Noise Covariance: {{measurement_Noise_Covariance}}</label><br>
         <input id="measurement_Noise_Covariance" type="range" min="1" max="50" v-model="measurement_Noise_Covariance">
         <br>
       </div>
-      <!-- <div>{{ count_2 }}</div> -->
+    </div>
   </div>
 </template>
 
@@ -84,4 +83,9 @@
   }
 </script>
 
-<style type="text/css"></style>
+<style type="text/css">
+  .controller {
+    font-size: 20px;
+    margin-left: 1%
+  }
+</style>
