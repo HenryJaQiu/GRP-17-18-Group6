@@ -1,4 +1,5 @@
 import store from './vuex/store.js'
+const math = require('mathjs')
 const fs = require('fs')
 var path = ''
 
@@ -40,10 +41,9 @@ function readFile (path) {
   fs.readFile(path, 'utf8', function (err, content) {
     if (err === null) {
       var data = JSON.parse(content)
-      store.dispatch('setMatrixXhat', data.xhat)
-      store.dispatch('setMatrixTrue', data.xTrue)
+      store.dispatch('setMatrixXhat', math.matrix(data.xhat.data))
+      store.dispatch('setMatrixTrue', math.matrix(data.xTrue.data))
       store.commit('setIfImported', true)
-      console.log(data.xTrue)
       setPath(path)
     } else {
       openDialog('error', err.toString())
@@ -78,9 +78,7 @@ function saveFile () {
 function writeFile () {
   try {
     let error
-    console.log(store)
     var json = { xTrue: store.getters.getMatrixTrue, xhat: store.getters.getMatrixXhat }
-    // console.log(json)
     fs.writeFile(path, JSON.stringify(json, null, 4), function (err) {
       error = err
     })
@@ -100,38 +98,7 @@ function setPath (p) {
   path = p
 }
 
-function openLinkExternal () {
-  const electron = require('electron')
-  const window = electron.remote.getCurrentWindow()
-
-  document.addEventListener('click', function (e) {
-    let target = e.target
-    let href = target.getAttribute('href')
-
-    if (target.tagName !== 'A' && !href) {
-      return
-    }
-
-    if (href.substring(0, 4) === 'http') {
-      e.preventDefault()
-      // get status
-      let status = window.isAlwaysOnTop()
-      // on top
-      window.setAlwaysOnTop(true)
-      // open link
-      electron.shell.openExternal(target.href)
-      // restore
-      if (!status) {
-        setTimeout(function () {
-          window.setAlwaysOnTop(false)
-        }, 1000)
-      }
-    }
-  })
-}
-
 export {
   openFile,
-  saveFile,
-  openLinkExternal
+  saveFile
 }
