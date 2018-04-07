@@ -27,6 +27,7 @@
     methods: {
       // After click 'start'
       refreshChart () {
+        console.log(this.$store.getters.getMatrixXhat)
         var that = this
         that.$refs.editChart.drawChart()
       },

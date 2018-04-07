@@ -42,6 +42,7 @@ function readFile (path) {
       var data = JSON.parse(content)
       store.dispatch('setMatrixXhat', data.xhat)
       store.dispatch('setMatrixTrue', data.xTrue)
+      store.commit('setIfImported', true)
       console.log(data.xTrue)
       setPath(path)
     } else {

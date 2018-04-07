@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">Echarts Example</div>
+    <div class="title" v-if="this.$store.getters.getIfImported">Please click 'Refresh'</div>
     <div id="myChart" :style="{width: '450px', height: '350px'}"></div>
   </div>
 </template>

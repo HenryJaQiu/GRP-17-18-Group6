@@ -3,6 +3,7 @@
     <!-- <div>{{ count_1 }}</div><br> -->
     <div class="title">Parameter Controller</div><br>
       <button v-on:click="startAlgorithm">Start</button><br>
+      <button v-on:click="chartRefresh">Refresh</button><br>
       <h2>Settings</h2><br>
 
       <label for="particles">Particles: {{particles}}</label><br>
@@ -52,6 +53,9 @@
     methods: {
       incrt (mat) {
         this.$store.commit('setMatrixXhat', mat)
+      },
+      chartRefresh () {
+        this.$parent.refreshChart()
       },
 
       // consoleF () {
