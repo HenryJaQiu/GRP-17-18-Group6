@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title" v-if="this.$store.getters.getIfImported">Please click 'Refresh'</div>
-    <div id="myChart" :style="{width: '450px', height: '350px'}"></div>
+    <div class="chart" id="myChart"></div>
   </div>
 </template>
 
@@ -131,21 +131,8 @@
     letter-spacing: .25px;
     margin-top: 10px;
   }
-
-  .items { margin-top: 8px; }
-
-  .item {
-    display: flex;
-    margin-bottom: 6px;
-  }
-
-  .item .name {
-    color: #6a6a6a;
-    margin-right: 6px;
-  }
-
-  .item .value {
-    color: #35495e;
-    font-weight: bold;
+  .chart {
+    width: 450px;
+    height: 350px;
   }
 </style>
