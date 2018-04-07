@@ -112,7 +112,7 @@
       drawChart () {
         this.loadMatrix()
         this.myChart.setOption(this.option1)
-        this.store.commit('setIfImported', false)
+        this.$store.commit('setIfImported', false)
       },
       // DenseMatrix to Array
       convertDTO (mat) {
