@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="title" v-if="this.$store.getters.getIfImported">Please click 'Refresh'</div>
     <div class="chart" id="myChart"></div>
+    <div class="title" v-if="this.$store.getters.getIfImported">*Please click 'Refresh' to reload the Chart</div>
   </div>
 </template>
 
@@ -112,6 +112,7 @@
       drawChart () {
         this.loadMatrix()
         this.myChart.setOption(this.option1)
+        this.store.commit('setIfImported', false)
       },
       // DenseMatrix to Array
       convertDTO (mat) {
@@ -138,6 +139,6 @@
     width: 450px;
     height: 350px;
     margin-left: -11%;
-    margin-top: 5%
+    margin-top: 2%
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <div>{{ count_1 }}</div><br> -->
-    <div class="controller">Parameter Settings</div><br>
+    <div class="controller"><strong>Parameter Settings</strong></div><br>
       <div class="clicker">
         <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
         <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button><br>
