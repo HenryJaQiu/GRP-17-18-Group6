@@ -2,20 +2,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-"""
-p0 = np.matrix('1,1,1; 2,3,4')
-n = np.size(p0,1)
-
-p1 = np.array([1,2,3])
-print(p1)
-p1 = p1 + p1 
-#print(p0)
-#print(n)
-p rint(p1 )
-"""
-
-
 def cumsum(A):
     c = A.shape
     dim = c[0]
@@ -31,11 +17,6 @@ def sum(A):
         return np.sum(A, 0)
     else:
         return np.sum(A)
-'''
-def feval(funt,var):
-    for i in var:
-'''
-
 
 def PF(f,h,pe,Q,P0,M,y):
 
@@ -60,7 +41,7 @@ def resampling(q):
     u = (np.arange(0, M) + np.random.uniform(0, 1, 1))/M
     i = np.zeros((1, M))
     k = 0
-    for j in range(0,M):
+    for j in range(0, M):
         while qc[k] < u[j]:
             k = k + 1
         i[0][j] = k
@@ -68,7 +49,7 @@ def resampling(q):
 
 
 def TestPF():
-    M = 1000
+    M = 100000
     P0 = np.array([[5]])
     Q = 10
     R = 1
@@ -89,14 +70,8 @@ def TestPF():
     plt_x = [i for i in range(1,101)]
     plt.plot(plt_x, xhat[0], '--', plt_x, xTrue[0],'r')
     plt.show(block=True)
-    #return xTrue
+
+
 
 TestPF()
-#print(TestPF())
-'''
-b = np.array([[1,16],[256,81]])
-print(b)
-a = np.array([5])
-x = np.sqrtm(a)
-print(x)
-'''
+
