@@ -37,8 +37,8 @@
       <file leaf-file-name="Algorithm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage/Algorithm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2901">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state relative-caret-position="112">
+              <caret line="232" column="18" lean-forward="true" selection-start-line="232" selection-start-column="18" selection-end-line="232" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -278,12 +278,12 @@
       <workItem from="1523522197829" duration="1211000" />
       <workItem from="1523526444226" duration="193000" />
       <workItem from="1523617868364" duration="868000" />
-      <workItem from="1523693250338" duration="4157000" />
+      <workItem from="1523693250338" duration="5715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53354000" />
+    <option name="totallyTimeSpent" value="54912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="17" y="44" width="1400" height="789" extended-state="0" />
@@ -546,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage/Algorithm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2901">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        <state relative-caret-position="112">
+          <caret line="232" column="18" lean-forward="true" selection-start-line="232" selection-start-column="18" selection-end-line="232" selection-end-column="18" />
           <folding />
         </state>
       </provider>
