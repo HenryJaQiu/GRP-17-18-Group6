@@ -2,8 +2,10 @@
 \contentsline {subsection}{\numberline {1.1}Background of the Project}{2}
 \contentsline {subsection}{\numberline {1.2}Motivation \& Wide implmentation of state estimation}{2}
 \contentsline {subsubsection}{\numberline {1.2.1}Automotive Navigation-Example}{3}
-\contentsline {subsubsection}{\numberline {1.2.2}Navigation for Augmented Reality}{4}
-\contentsline {subsection}{\numberline {1.3}Scope of the project}{5}
-\contentsline {subsection}{\numberline {1.4}Introducing two auxiliary particle filters(APF)}{5}
-\contentsline {subsubsection}{\numberline {1.4.1}Bootstrap particle filter}{5}
-\contentsline {subsubsection}{\numberline {1.4.2}Fully adapted particle filter}{5}
+\contentsline {subsubsection}{\numberline {1.2.2}Navigation for Augmented Reality}{5}
+\contentsline {subsection}{\numberline {1.3}Scope of the project}{6}
+\contentsline {subsection}{\numberline {1.4}Introducing two kinds of auxiliary particle filters(APF)}{6}
+\contentsline {subsubsection}{\numberline {1.4.1}Sequential Monte Carlo Methods}{6}
+\contentsline {subsubsection}{\numberline {1.4.2}Auxiliary particle filter(APF)}{6}
+\contentsline {subsubsection}{\numberline {1.4.3}Bootstrap particle filter}{9}
+\contentsline {subsubsection}{\numberline {1.4.4}Fully adapted particle filter}{9}

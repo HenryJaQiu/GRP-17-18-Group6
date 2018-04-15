@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  15 APR 2018 00:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  16 APR 2018 07:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -90,7 +90,25 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidth=\dimen111
 \titlewidthlast=\dimen112
 \titlewidthfirst=\dimen113
-) (./Final_report.aux
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (./Final_report.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 
 LaTeX Warning: Label `' multiply defined.
 
@@ -103,18 +121,18 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `Final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
  (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count97
@@ -122,12 +140,12 @@ LaTeX Font Info:    ... okay on input line 15.
 \scratchbox=\box31
 \nofMPsegments=\count98
 \nofMParguments=\count99
-\everyMPshowfont=\toks19
+\everyMPshowfont=\toks20
 \MPscratchCnt=\count100
 \MPscratchDim=\dimen115
 \MPnumerator=\count101
 \makeMPintoPDFobject=\count102
-\everyMPtoPDFconversion=\toks20
+\everyMPtoPDFconversion=\toks21
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
@@ -168,54 +186,92 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Final_report.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write3
 \openout3 = `Final_report.toc'.
 
  [1] <./source/1.png, id=13, 598.235pt x 418.56375pt>
 File: ./source/1.png Graphic file (type png)
- <use ./source/1.png>
-Package pdftex.def Info: ./source/1.png used on input line 72.
+
+<use ./source/1.png>
+Package pdftex.def Info: ./source/1.png used on input line 73.
 (pdftex.def)             Requested size: 255.46513pt x 178.74188pt.
  [2] <./source/2.png, id=21, 391.4625pt x 300.12125pt>
 File: ./source/2.png Graphic file (type png)
  <use ./source/2.png>
-Package pdftex.def Info: ./source/2.png used on input line 87.
+Package pdftex.def Info: ./source/2.png used on input line 88.
 (pdftex.def)             Requested size: 233.14706pt x 178.74188pt.
- [3 <./source/1.png> <./source/2.png>] <./source/3.png, id=27, 446.66875pt x 322.20375pt>
+ [3 <./source/1.png>] <./source/3.png, id=26, 446.66875pt x 322.20375pt>
 File: ./source/3.png Graphic file (type png)
  <use ./source/3.png>
-Package pdftex.def Info: ./source/3.png used on input line 102.
+Package pdftex.def Info: ./source/3.png used on input line 106.
 (pdftex.def)             Requested size: 247.79503pt x 178.74188pt.
- <./source/4.png, id=28, 480.79625pt x 417.56pt>
+ [4 <./source/2.png>] <./source/4.png, id=31, 480.79625pt x 417.56pt>
 File: ./source/4.png Graphic file (type png)
  <use ./source/4.png>
-Package pdftex.def Info: ./source/4.png used on input line 112.
-(pdftex.def)             Requested size: 137.20442pt x 119.15823pt.
- [4 <./source/3.png> <./source/4.png>] [5] (./Final_report.aux)
+Package pdftex.def Info: ./source/4.png used on input line 116.
+(pdftex.def)             Requested size: 240.11874pt x 208.53372pt.
+ [5 <./source/3.png> <./source/4.png>] <./source/5.JPG, id=37, 4047.12pt x 532.99126pt>
+File: ./source/5.JPG Graphic file (type jpg)
+ <use ./source/5.JPG>
+Package pdftex.def Info: ./source/5.JPG used on input line 138.
+(pdftex.def)             Requested size: 323.9978pt x 42.66457pt.
+
+./Final_report.tex:145: Undefined control sequence.
+l.145 ... to compute the filtering PDFs $ \lbracep
+                                                  (x_t|y_{1:t})\rbrace $ seq...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
+
+ []
+
+[6 <./source/5.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 181--184
+
+ []
+
+[7] [8] <./source/6.png, id=56, 708.6475pt x 205.76875pt>
+File: ./source/6.png Graphic file (type png)
+ <use ./source/6.png>
+Package pdftex.def Info: ./source/6.png used on input line 237.
+(pdftex.def)             Requested size: 323.9978pt x 94.08018pt.
+ [9 <./source/6.png>] <./source/7.png, id=61, 708.6475pt x 240.9pt>
+File: ./source/7.png Graphic file (type png)
+ <use ./source/7.png>
+Package pdftex.def Info: ./source/7.png used on input line 263.
+(pdftex.def)             Requested size: 323.9978pt x 110.14265pt.
+ [10 <./source/7.png>] (./Final_report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3068 strings out of 492995
- 44404 string characters out of 6132704
- 107901 words of memory out of 5000000
- 6598 multiletter control sequences out of 15000+600000
- 8798 words of font info for 31 fonts, out of 8000000 for 9000
+ 3376 strings out of 492995
+ 47913 string characters out of 6132704
+ 111409 words of memory out of 5000000
+ 6883 multiletter control sequences out of 15000+600000
+ 10707 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,32p,470b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Final_report.pdf (6 pages, 1545880 bytes).
+ 39i,6n,32p,470b,257s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Final_report.pdf (11 pages, 2199888 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 114 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
