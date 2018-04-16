@@ -8,7 +8,8 @@ Vue.use(Vuex)
 const state = {
   matrixXhat: null,
   matrixTrue: null,
-  ifImported: false
+  ifImported: false,
+  ifRun: false
 }
 
 const mutations = {
@@ -20,6 +21,9 @@ const mutations = {
   },
   setIfImported (state, ifImported) {
     state.ifImported = ifImported
+  },
+  setIfRun (state, ifRun) {
+    state.ifRun = ifRun
   }
 }
 
@@ -32,6 +36,9 @@ const getters = {
   },
   getIfImported: state => {
     return state.ifImported
+  },
+  getIfRun: state => {
+    return state.ifRun
   }
 }
 
@@ -44,6 +51,9 @@ const actions = {
   },
   setIfImported (context, data) {
     context.commit('setIfImported', data)
+  },
+  setIfRun (context, data) {
+    context.commit('setIfRun', data)
   }
 }
 

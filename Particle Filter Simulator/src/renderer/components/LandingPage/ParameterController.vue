@@ -4,8 +4,10 @@
     <div class="controller"><strong>Parameter Settings</strong><br><br>
       <div class="clicker">
         <!-- Click to call method in VUE framework-->
-        <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
-        <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button><br>
+        <button class='btn btn-primary' v-on:mouseup="startAlgorithm" v-on:mousedown="showTips">Start</button>&nbsp;&nbsp;
+        <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button>
+        <label id="tips" v-if="this.$store.getters.getIfRun">Calculating...Please wait</label>
+        <br>
       </div>
       <br>
 
@@ -45,7 +47,8 @@
         particles: 100,
         initial_Noise_Covariance: 5,
         process_Noise_Covariance: 10,
-        measurement_Noise_Covariance: 1
+        measurement_Noise_Covariance: 1,
+        state: 'Finished'
       }
     },
 
@@ -66,12 +69,16 @@
       // call parent component to refresh chart
       chartRefresh () {
         this.$parent.refreshChart()
+        // this.state = 'Finished!'
       },
-
       startAlgorithm () {
+        this.$store.commit('setIfRun', false)
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         this.incrt(this.algorithm.start())
-        this.$parent.refreshChart()
+        this.chartRefresh()
+      },
+      showTips () {
+        this.$store.commit('setIfRun', true)
       }
     }
   }
@@ -86,5 +93,8 @@
   }
   .slider {
     font-size: 15px;
+  }
+  #tips {
+    opacity: 0.5
   }
 </style>
