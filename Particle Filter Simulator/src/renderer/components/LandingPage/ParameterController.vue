@@ -67,6 +67,7 @@
       chartRefresh () {
         this.$parent.refreshChart()
       },
+
       startAlgorithm () {
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         this.incrt(this.algorithm.start())
