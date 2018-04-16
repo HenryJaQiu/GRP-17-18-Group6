@@ -16,8 +16,10 @@
 </template>
 
 <script>
+  // import child components
   import FilterChart from './LandingPage/FilterChart'
   import ParameterController from './LandingPage/ParameterController'
+  // import the data component from ./src/render/vuex/store.js
   import store from '../vuex/store'
 
   export default {
@@ -28,12 +30,12 @@
       // After click 'start'
       refreshChart () {
         var that = this
-        that.$refs.editChart.drawChart()
+        that.$refs.editChart.drawChart() // call function in child component FilterChart
       },
       // Init data & chart
       initData () {
         var that = this
-        that.$refs.initMatrix.startAlgorithm()
+        that.$refs.initMatrix.startAlgorithm() // call function in child component ParameterController
       }
     }
   }

@@ -1,14 +1,19 @@
 <template>
   <div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f40e6a706a70b718cc24f4681c86f491e1b6c41
     <div class="controller"><strong>Parameter Settings</strong><br><br>
       <div class="clicker">
+        <!-- Click to call method in VUE framework-->
         <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
         <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button><br>
       </div>
       <br>
 
       <div class="slider">
+        <!-- Use two-way bind in VUE to make label and slider binding with data stored -->
         <label for="particles">Particles: {{particles}}</label><br>
         <input id="particles" type="range" min="1" max="500" v-model="particles">
         <br>
@@ -30,6 +35,7 @@
 </template>
 
 <script>
+  // import JS algorithm
   import Algorithm from './Algorithm.js'
 
   export default {
@@ -37,6 +43,7 @@
 
     data () {
       return {
+        // default data
         algorithm: null,
         particles: 100,
         initial_Noise_Covariance: 5,
@@ -55,28 +62,39 @@
     },
 
     methods: {
+      // commit the result to data store
       incrt (mat) {
         this.$store.commit('setMatrixXhat', mat)
       },
+      // call parent component to refresh chart
       chartRefresh () {
         this.$parent.refreshChart()
       },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f40e6a706a70b718cc24f4681c86f491e1b6c41
       startAlgorithm () {
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         this.incrt(this.algorithm.start())
         this.$parent.refreshChart()
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f40e6a706a70b718cc24f4681c86f491e1b6c41
     }
   }
 </script>
 
 <style type="text/css">
   .controller {
-    font-size: 18px;
+    font-size: 19px;
     position: absolute;
     left: 500px;
     top: 50px;
+  }
+  .slider {
+    font-size: 15px;
   }
 </style>
