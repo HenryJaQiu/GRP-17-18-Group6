@@ -1,14 +1,15 @@
 <template>
   <div>
-    <!-- <div>{{ count_1 }}</div><br> -->
     <div class="controller"><strong>Parameter Settings</strong><br><br>
       <div class="clicker">
+        <!-- Click to call method in VUE framework-->
         <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
         <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button><br>
       </div>
       <br>
 
       <div class="slider">
+        <!-- Use two-way bind in VUE to make label and slider binding with data stored -->
         <label for="particles">Particles: {{particles}}</label><br>
         <input id="particles" type="range" min="1" max="500" v-model="particles">
         <br>
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+  // import JS algorithm
   import Algorithm from './Algorithm.js'
 
   export default {
@@ -37,6 +39,7 @@
 
     data () {
       return {
+        // default data
         algorithm: null,
         particles: 100,
         initial_Noise_Covariance: 5,
@@ -55,39 +58,31 @@
     },
 
     methods: {
+      // commit the result to data store
       incrt (mat) {
         this.$store.commit('setMatrixXhat', mat)
       },
+      // call parent component to refresh chart
       chartRefresh () {
         this.$parent.refreshChart()
       },
-
-      // consoleF () {
-      //   console.log(this.$store.getters)
-      // },
-
       startAlgorithm () {
-        // this.removePreviousAlgorithm()
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
-        // alert(this.algorithm.start())
-        // console.log(this.$store.state.matrix)
         this.incrt(this.algorithm.start())
         this.$parent.refreshChart()
-        // this.consoleF()
       }
-      //
-      // removePreviousAlgorithm () {
-      //     this.algorithm = null
-      //     }
     }
   }
 </script>
 
 <style type="text/css">
   .controller {
-    font-size: 18px;
+    font-size: 19px;
     position: absolute;
     left: 500px;
     top: 50px;
+  }
+  .slider {
+    font-size: 15px;
   }
 </style>
