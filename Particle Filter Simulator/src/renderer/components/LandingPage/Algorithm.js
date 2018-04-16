@@ -1,3 +1,5 @@
+// The code in this file has been mainly written by Cong LIU with considerable
+// support from KaiWen ZHANG
 import store from '../../vuex/store'
 const math = require('mathjs')
 // The bootstrap particles filter algorithm class is prepared for the implementation in vue component.
@@ -9,7 +11,7 @@ class Algorithm {
     this.r = r
   }
 
-// start() function will invoke the particle filter
+  // start() function will invoke the particle filter
   start () {
     return testPF(this.m, this.p0, this.q, this.r)
   }
@@ -152,7 +154,7 @@ function dotAdd (x, y) {
   return y
 }
 
-//returns the matrix after element-wise Subtraction of two matries(vectors)
+// returns the matrix after element-wise Subtraction of two matries(vectors)
 function dotSubtract (x, y) {
   var mx = math.size(x)
   var xcol = mx.subset(math.index(1))
@@ -239,7 +241,7 @@ function testPF (p, inc, pnc, mnc) {
     x.subset(math.index(0, t), (f(math.matrix([[x.subset(math.index(0, t - 1))]]), (t - 1)).subset(math.index(0, 0)) + math.multiply(math.sqrt(Q), randn(1, 1).subset(math.index(0, 0)))))
     y.subset(math.index(0, t), (h(math.matrix([[x.subset(math.index(0, t))]])).subset(math.index(0, 0)) + math.multiply(math.sqrt(R), randn(1, 1).subset(math.index(0, 0)))))
   }
-  
+
   store.commit('setMatrixTrue', x)
   var xhat = xhatPF(Q, P0, M, y)
 

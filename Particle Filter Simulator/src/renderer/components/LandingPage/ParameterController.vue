@@ -1,9 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f40e6a706a70b718cc24f4681c86f491e1b6c41
     <div class="controller"><strong>Parameter Settings</strong><br><br>
       <div class="clicker">
         <!-- Click to call method in VUE framework-->
@@ -70,19 +66,12 @@
       chartRefresh () {
         this.$parent.refreshChart()
       },
-<<<<<<< HEAD
 
-=======
->>>>>>> 6f40e6a706a70b718cc24f4681c86f491e1b6c41
       startAlgorithm () {
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
         this.incrt(this.algorithm.start())
         this.$parent.refreshChart()
       }
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f40e6a706a70b718cc24f4681c86f491e1b6c41
     }
   }
 </script>
