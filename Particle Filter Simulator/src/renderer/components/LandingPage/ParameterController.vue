@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div>{{ count_1 }}</div><br> -->
+
     <div class="controller"><strong>Parameter Settings</strong><br><br>
       <div class="clicker">
         <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
@@ -62,23 +62,12 @@
         this.$parent.refreshChart()
       },
 
-      // consoleF () {
-      //   console.log(this.$store.getters)
-      // },
-
       startAlgorithm () {
-        // this.removePreviousAlgorithm()
         this.algorithm = new Algorithm(this.particles, this.initial_Noise_Covariance, this.process_Noise_Covariance, this.measurement_Noise_Covariance)
-        // alert(this.algorithm.start())
-        // console.log(this.$store.state.matrix)
         this.incrt(this.algorithm.start())
         this.$parent.refreshChart()
-        // this.consoleF()
       }
-      //
-      // removePreviousAlgorithm () {
-      //     this.algorithm = null
-      //     }
+
     }
   }
 </script>
