@@ -69,7 +69,7 @@
       // call parent component to refresh chart
       chartRefresh () {
         this.$parent.refreshChart()
-        // this.state = 'Finished!'
+        this.$store.commit('setIfRun', false)
       },
       startAlgorithm () {
         this.$store.commit('setIfRun', false)
@@ -95,6 +95,7 @@
     font-size: 15px;
   }
   #tips {
-    opacity: 0.5
+    opacity: 0.5;
+    font-size:13px;
   }
 </style>
