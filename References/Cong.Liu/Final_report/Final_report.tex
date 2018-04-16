@@ -66,11 +66,11 @@ estimation problem is provided by the probability density function $ p(x_t|Y_s) 
 information about the state variable.
 
 \subsection{Motivation \& Wide implmentation of state estimation}
-The automotive industry's focus is recently shifting from mechanics to electronics and software. This opens up factors
+This section illustrates the kind of problems that can be handled using state estimation, by explaining two applications. For instance, first of all, the automotive industry's focus is recently shifting from mechanics to electronics and software. This opens up factors
 a great deal of interesting applications and research opportunities within the field of estimation theory.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[height=0.3\textheight]{./source/1.png}
+  \includegraphics[height=0.3\textheight]{./source/PF/1.png}
   \end{center}
   \caption{ The most important factors enabling future automative safety systems
   is the availablility of accurate information about the state. The process of obtaining
@@ -85,7 +85,7 @@ and collision avoidance. The idea exemplified here follows from the general fram
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[height=0.3\textheight]{./source/2.png}
+  \includegraphics[height=0.3\textheight]{./source/PF/2.png}
   \caption{when entering a curve, all vehicles start moving in the lateral direction. This information
   can be used to support the road geometry estimate.}
   \label{}
@@ -103,7 +103,7 @@ signal was generated using the method proposed by Eidehall and Gustafsson (2006)
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[height=0.3\textheight]{./source/3.png}
+  \includegraphics[height=0.3\textheight]{./source/PF/3.png}
   \caption{Comparision of estimation performance from two filters, one with a large $\mathcal{Q}_{lat} $ and one with a small $\mathcal{Q}_{lat} $. The raw measuremet signal from the image processing
   unit is also included. Comparing this raw vision measuremet to the result from the filters clearly illustrates the power of a model based sensor fusion approach}
   \label{}
@@ -113,7 +113,7 @@ signal was generated using the method proposed by Eidehall and Gustafsson (2006)
 \subsubsection{Navigation for Augmented Reality}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[height=0.35\textheight]{./source/4.png}
+  \includegraphics[height=0.35\textheight]{./source/PF/4.png}
   \caption{Some examples illustrating the concept of augmented reality.}
   \label{}
   \end{center}
@@ -135,15 +135,15 @@ where $\delta(\cdot) $ represents the Dirac delta function and $\tilde{q}_{t}^{(
 particle $x_{t}^{i} $ as a possible system state and the corresponding weight $\tilde{q}_{t}^{(i)} $ contains information about how probable that particular state is.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.9\textwidth]{./source/5.JPG}
+  \includegraphics[width=0.9\textwidth]{./source/PF/5.JPG}
   \caption{Illustrating the three parts making up sequential Monte Carlo}
   \label{}
   \end{center}
 \end{figure}
 
 \subsubsection{Auxiliary particle filter(APF)}
-As a principled solution to compute the filtering PDFs $ \lbracep(x_t|y_{1:t})\rbrace $ sequentially in time is provided by the following
-two recursively equations:\\
+As a principled solution to compute the filtering PDFs $ \lbrace (x_{t}|y_{1:t}) \rbrace $ sequentially in time is provided by the following
+two recursively equations:
 \begin{equation}
 p(x_{t} | y_{1:t}) = p(x_t | y_t, y_{1:t-1}) = \frac{p(y_t|x_t)p(x_t|y_{1:t-1})}{p(y_t|y_{1:t-1})}
 \end{equation}
@@ -180,7 +180,7 @@ Analogously to above, the mixture proposal (7) can be interpreted as a joint pro
 q(x_{t}, a_{t} | y_{1:t}) = w_{t-1}^{a_t}q(x_{t}|x_{t-1}^{a_{t}}, y_{t})
 \end{equation}
 Here, $a_{t} $ should be thought of as an index selecting one of the componets in the sum (7).
-Generating, independently, N realizations from this joint proposal distribution can be done as follows.\\
+Generating, independently, N realizations from this joint proposal distribution can be done as follows.
 \flushleft
 \begin{enumerate}
 \item Sample the ancestor indices $ \{ a_{t}^{i} \}_{i=1}^{N} $ according to
@@ -197,7 +197,7 @@ w_{t-1}^{a_{t}}p(y_{t}|x_{t})p(x_{t}|x_{t-1}^{a_{t}})
 \end{equation}
 In fact, it is possible to use the information available in the current observation $y_{t} $, not only when proposing the new state $x_{t} $, but also when proposing its ancestor index $a_{t} $. The principle is that we can thereby increase the probability of resampling particles at time $t-1 $ that are in
 agreement with the observation $y_{t} $. \\
-It is free to use any proposal distribution that we find appropriate to obtain the pair $(x_{t}, a_{t}) $ (Thomas B. Schon, Fredrik Lindsten, 2017). For example, let $V $ be the function that will be used to adapt the proposal distribution for the ancestor indices. For each particle
+It is free to use any proposal distribution that we find appropriate to obtain the pair $(x_{t}, a_{t}) $ (Thomas B. Schon, Fredrik Lindsten, 2017). For example, let $v $ be the function that will be used to adapt the proposal distribution for the ancestor indices. For each particle
 , i.e. for $i = 1,...,N $, we then compute the quantities
 \begin{equation}
   v_{t-1}^{i} := v(x_{t-1}^{i}, y_{t}),
@@ -207,7 +207,7 @@ referred to as adjustment multipliers. The adjustment multipliers are used to co
 \mathbb{P} (A_{t} = i \arrowvert \{ x_{t-1}^{j}, w_{t-1}^{j} \}_{j=1}^{N} , y_{t} ) = \frac{w_{t-1}^{i} V_{t-1}^{i}}{\sum_{t=1}^{N} w_{t-1}^{l} v_{t-1}^{l}} \qquad i = 1,...,N
 \end{equation}
 From the above expression, it is clear that v acts as adjusting the original weights $w $ via multiplication. The underlying ideas of implementation of adjustment multipliers is that by carefully choosing the function $v $, we can adapt the sampling of the ancestor
-indices in (16) to make use of the information available in the current measuremet $y_{t} $ \\
+indices in equation (12) to make use of the information available in the current measuremet $y_{t} $ \\
 Then, we get the following expression for the $i $ importance weight as the use of adjustment multipliers:
 \begin{equation}
 \bar{w}_{t}^{i} = w(x_{t-1}, x_{t}, y_{t}) = \frac{w_{t-1}^{a_{t}^{i}} p(y_{t}|x_{t}^{i}) p(x_{t}^{i}|x_{t-1}^{a_{t}^{i}})}{w_{t-1}^{a_{t}^{i}} v(\bar{x}_{t-1}, y_{t}) q(x_{t}^{i}|x_{t-1}^{a_{t}^{i}}, y_{t})}
@@ -227,15 +227,15 @@ q(x_{t}|x_{t-1}^{a_{t}}, y_{t}) = p(x_{t}|x_{t-1}^{j}),
 \begin{equation}
 q(x_{t}, a_{t} | y_{1:t}) = \sum_{j=1}^{N}w_{t-1}^{j}p(x_{t}|x_{t-1}^{j})
 \end{equation} \\
-Therefore, From (6) and (7) it follows that the weight function is given by
+Therefore, it follows that the weight function is given by
 \begin{equation}
-\bar{w}_{t}^{i} = \frac{p(x_{t}, a_{t}|y_{1:t})}{q(x_{t}, a_{t}|y_{1:t})} = p(y_{t}|x_{t})
+\bar{w}_{t}^{i} = \frac{w_{t-1}^{a_{t}^{i}} p(y_{t}|x_{t}^{i}) p(x_{t}^{i}|x_{t-1}^{a_{t}^{i}})}{w_{t-1}^{j}p(x_{t}|x_{t-1}^{j})} = p(y_{t}|x_{t})
 \end{equation}
 This completes the algorithm.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.9\textwidth]{./source/6.png}
-  \caption{}
+  \includegraphics[width=0.9\textwidth]{./source/PF/6.png}
+  \caption{bootstrap particle filter}
   \end{center}
   \label{}
 \end{figure}
@@ -260,11 +260,254 @@ target distribution.
 This completes the algorithm.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.9\textwidth]{./source/7.png}
-  \caption{}
+  \includegraphics[width=0.9\textwidth]{./source/PF/7.png}
+  \caption{Fully adapted particle filter}
   \label{}
   \end{center}
 \end{figure}
+
+\section{Requirement Specification}
+\subsection{Introduction}
+Particle Filter Simulator is a lightweight application which is mainly used by college students and teachers. Because Particle Filter Simulator is aimed for teaching or image and data processing, thus, in order to meet the main needs of users and provide positive user experience,
+a large amount of significant requirements should be carefully considered and implemented. In this part of report, it will illustrate the process of gathering and implementing requirement and provide a list of different types of requirements. For each specific requirement,
+it will be analyzed and explained in more details.
+\subsection{User case Diagram}
+Use case diagram could describe how users interact with system and it could be the first step from requirement specification to software implementation. The actors, use cases and system boundary will be shown as follow. It could help developers implement the main function of Particle Filter Simulator and provide a clear diagram for users to understand each parts of the software.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[height=0.4\textheight]{./source/Requirement/1.png}
+  \caption{User case diagram}
+  \label{}
+  \end{center}
+\end{figure}
+
+\subsection{Prototype}
+Software prototype provides a brief user interface and it has been divided the whole software into several parts. Developer could better implement division and cooperation by focusing on each different component in prototype. It also provides a feasible option to validate if the software design achieves expected user experience.
+\begin{enumerate}
+  \item Start interface: After the software is opened by user, user should first select different algorithms. It is the first impression of user experience and help users gets start easily.
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/2.png}
+    \caption{Start interface}
+    \label{}
+    \end{center}
+  \end{figure}
+
+  \item Navigating bar: Navigating bar is placed on the top of window and it contains three main options: File, View and Help. File options include the function of operating input and output file. View options include the function of setting window on the top or changing the software appearance. Help options include the help document and software update.
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/3.png}
+    \caption{Navigating bar-File}
+    \label{}
+    \end{center}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/4.png}
+    \caption{Navigating bar-View}
+    \label{}
+    \end{center}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/5.png}
+    \caption{Navigating bar-Help}
+    \label{}
+    \end{center}
+  \end{figure}
+
+  \item Main interface: Main interface of generating data and image, which includes three components: function button, outcome image and parameter controller. Function button includes several functional buttons to deal with data and image. Outcome image includes an area to generate a plot image with coordinate axis and two scroll bar. Parameter controller contains a list containing parameter name, several slider used to adjust parameter value and a start and refresh button.
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/6.png}
+    \caption{Main interface-prepare}
+    \label{}
+    \end{center}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/7.png}
+    \caption{Main interface-executing}
+    \label{}
+    \end{center}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=0.3\textheight]{./source/Requirement/8.png}
+    \caption{Main interface-complete}
+    \label{}
+    \end{center}
+  \end{figure}
+\end{enumerate}
+\subsection{Requirements list}
+During the procedure of software design and requirements Implementation, developers found that some requirements is difficult to implement and there are also some new requirements need to be considered. In this section, it mainly focusing on the requirements that has been appeared in the software design process and which of them have been implemented or not.
+\subsubsection{Functional requirements}
+Particle Filter Simulator is using the algorithm selected by user to generate the outcome image. These are the main functional requirements appearing during the software design process:
+\begin{enumerate}
+  \item The software should illustrate the correctly usage method in help document.
+  \item The software should provide the function of selecting different algorithms
+  \item The software should display the brief explanation of algorithms when user is selecting an algorithm.
+  \item The software should provide some existing sample data to users without other specific data.
+  \item The software needs prompt and check the format of the file when users import specific sample data.
+  \item The software should use the algorithm which is selected by user to deal with the import sample data and generate the outcome image.
+  \item The software should provide modifiable parameter list and brief explanations of each parameter.
+  \item The software should have the function of modifying parameters which are initially set as default value.
+  \item The software should implement the function of exporting images, data, or both of them according to the user’s decision.
+  \item The software should permit users to combine two images together to compare the differences between them.
+  \item The software should provide the function of clearing the current data and results if users want to import another sample data or select another algorithm.
+  \item The software should provide a function of putting the software window into the top.
+  \item A restart button should be provided to handle the situation of software crashing.
+  \item The software need to check version update automatically and submit bugs which are collected by users to software maintainer.
+  \item When the software is using algorithm to generate image, a progress bar or a waiting hint should be provided which is used to display the running state of software.
+  \item The range of permanents should be limited to avoid the situation that increasing running time of algorithm and software crashing.
+\end{enumerate}
+
+\subsubsection{Non-functional requirements}
+Performance \& security \& Environment:
+The non-functional requirements are given as follow which include the environment requirements, performance requirements and data requirements:
+\begin{enumerate}
+  \item The window size of the software should be suitable for demonstration.
+  \item The user interface should be convenient for user activity.
+  \item The running time of using the algorithm to deal with the sample data should be as quick as possible, for instance, it should be less than 5 seconds with the consideration of the computability of Javascript.
+  \item The system resources occupied by software should be limited.
+  \item The software needs to run on major platforms and operating systems.
+  \item The software should be convenient for update and extension.
+  \item The outcome image should have positive distributing accuracy when the value of several parameters is limited.
+  \item The software requires appropriate software capacity to be convenient for users download and use in a short period of time.
+  \item It should be convenient to passing parameter data between each component in different part of software.
+  \item The software is free, it is better that the development and maintenance costs should be properly reduced.
+\end{enumerate}
+
+\section{Development Strategies}
+\subsection{Agile}
+Stakeholders:
+\begin{enumerate}
+  \item Teachers: Teachers might use this software to help explaining particle filter for academic purpose. Main requirement of this system is visualizing the output of the algorithm. Before the visualization, teacher will be able to set the parameters of particle filter, then the algorithm will run in the background based on Bayes theorem.
+  \item Student: Students require same functions as teacher and expect that this software will be providing data import/export functions. By those functions they can compare output of the algorithm with different parameters, in the form of both data and visual image. Those functions can also be used to submit the output to teacher if required.
+
+\end{enumerate}
+\subsection{Techiniques}
+As this software is designed as an academic teaching tool and might run on school’s or users’ own machine, we are supposed to choose techniques that are available to develop light-weight and cross-platform PC application.
+The realizability of data visualization and algorithm computation is the basic requirement of choice.
+Learning cost and whether suitable for cooperative development will also be considered as the develop group is supposed to learn and develop as a team.
+
+\subsection{Plan \& Task assignments}
+\begin{enumerate}
+  \item For this group project, as it is based on complex mathematical knowledge, two members mostly focus on the realization of the algorithm, including the implementation of the algorithm in background code and related documents. （Cong Liu & Kaiwen Zhang）
+  \item One member is responsible for choosing developing techniques, including developing language, framework and tool components. He is also supposed to set up the software development framework and help other members building the develop environment and solve technique problems in developing. (Hejia Qiu)
+  \item One member will cooperate with the former one to develop the software, both in design an d code, and supposed to complete some functions and test work. Prototype and interface design is also supposed to complete by this member with the technique chooser. (Xiang Zhang)
+  \item As this group project requires meeting and documents, one member will work as documenter to record meeting minutes and necessary documents, both for developers and users. (Zexi Song)
+\end{enumerate}
+
+\section{Design & Implementation}
+\subsubsection{Programming Language for Development}
+JavaScript, HTML and CSS:\\
+As this project requires data visualization function, front-end is a suitable choice as there exists visualizing frameworks like Echarts.js based on JavaScript and canvas in front-end development.
+Front-end developing also decrease the cost of interface development and can easily improve UI by CSS tools, such as Bootstrap.
+\subsubsection{Developling framework}
+Electron: \\
+Electron is an open-source framework to build cross-platform desktop Apps with front-end language. It is based on Node.js and npm source.
+\\
+Vue.js:
+Vue.js is an progressive JavaScript framework. It is approachable, versatile and performant.
+The key advantage is make the software into components, which is much easier for group project as group member will not get confused by reading others’ code – they just work on their on component.
+
+\subsubsection{Developling Tools}
+Vue-cli:\\
+Vue-cli is a full system for rapid Vue.js development and aims to be the standard tooling baseline for the Vue ecosystem.
+By using this tool, the components structure can be much clear and easy to coop-develop.
+\\
+Electron-Vue:\\
+The aim is to remove the need of manually setting up electron apps using vue-cli.
+
+\subsubsection{Package Tools}
+Electron-builder:\\
+A complete solution to package and build a ready for distribution Electron app with “auto update” support out of the box based on npm/yarn source.
+By using this tool, we can easily package the software into cross platform installation package and installation-free software. The size of package will also be small. In addition, auto-update function is also supported by this tool.
+
+\subsubsection{Data Visualization Tools}
+Echarts.js:\\
+ECharts.js is a powerful, interactive charting and visualization library for browser.
+The API of this framework can satisfy all requirement of the software.
+
+\subsubsection{Math Tools}
+Math.js:\\
+Math.js is an extensive math library for JavaScript and Node.js and is used in this project to do matrix calculation.
+
+
+\section{Test}
+The test of Particle Filter Simulator software aims to discover the functional and service performance-related problems through variety test approaches. According to apposite approaches, basic errors and drawbacks on functions and logic can be detected and reduced.   Ensure that software can implement its functions as expected.
+
+In this software, the whole functions will be tested including importing a json file, exporting data, drawing chart of algorithm running  result, refreshing the chart and altering the parameter value of Particle Filter algorithm. The correctness of algorithm implementation will be tested particularly. Plus, parts of non-functional features which are significant to the software will be tested as well, for instance, system compatibility, installation and uninstallation, and performance in response time.
+\subsection{Pass/Fail Criteria}
+For functional features, the pass criterion applies to all of them: implement correctly without any error and warning. And if the condition do not reach, the feature is failed.
+
+For non-functional features, pass or fail criteria should be considered separately.
+\begin{enumerate}
+  \item System compatibility: The criterion of system compatibility is whether the software can implement its functions well as a cross-platform software. Two mainstream operating systems must be satisfied, Windows and Mac OS.
+  \item Installation: installation pass criterion is verification that software works properly after installation. It is failed if installation error occurs.
+  \item Uninstallation: the pass criterion of uninstallation is the software can be uninstalled clearly and has no harmful effects on the system.
+  \item Performance(response time): Miller(1968) indicated there are three levels of response time for users. 0.1 to 0.2s: users may think it is immediate response.1~5s: The users feel that the interaction is basically smooth. The users will notice the delay. 8s or more: Users will follow the dialog. A prompt or progress bar is required to confirm that the system is still in process. Treat the information as a reference, the pass criterion is set to most response time of operations should be under 5s, otherwise, a progress bar should be showed to tell users the computer does work. Over 5s and no progress bar or other prompt will be considered as failure.
+
+\end{enumerate}
+\subsection{Approach}
+The test will use black box testing to check functions with equivalence partition testing and boundary testing, while white box testing and unit testing to check the source code. Matlab will be applied to support mathematical principles.
+
+Performance will be tested by Chrome devtools to present the response time of every operation. All test cases are manual tests.
+
+
+
+
+
+
+\section{Evaluation and Reflection}
+\subsection{Assessment of the product}
+After two semesters\’ study and work, we finally completed our software that realizes the data visualization of Bootstrap particle filter, nevertheless, the fully adapted particle filter has not been realized. Some assessments of the product including good and bad reviews are as follow
+\begin{enumerate}
+  \item The software of our group has completed most of the requirements.
+  \item The size of our software packages is very small, and it is easy for customers to download and use.
+  \item Our software can be cross-platform.
+  \item Our software has more than one installation approaches for customers to choose. They could download an installation package or portable version to start using our program.
+  \item Our software implements data visualization, the result of each change in data is straightforward on the graphics.
+  \item Our software can import and export data. We can not only use an existing data to complete data visualization, but also export data according to the image that we have generated.
+  \item The speed of the software is not optimized well. The software would run for 1.6 seconds if we set the number of particles to 100. But if the number is increased to 500, it would run for 7.9 seconds.
+  \item Our software’s language choice is not the optimal choice, we had tried some other languages such as python. Using python could optimize operation time but it adds new problems which increase user load. For the sake of the user, we use JavaScript as the language of our software.
+  \item λ	Our software has not been tested by Alpha text, also named informal acceptance test
+\end{enumerate}
+\subsubsection{Further improvement}
+\begin{enumerate}
+  \item We still have a lot of room for improvement in language selection. After lots of steps’ screening, we chose JavaScript. We do not think it is the optimal solution, although it is a result considering the balance of code difficulty, package size, and some other factors.   But from the aspect of the functionality and software instead of development difficulty and the burden of the customers, we would choose multithreading JavaScript or other advanced languages.
+  \item Because the software’s loading time will become longer as the number of the particle increasing, a progress bar can let our customers see its loading process intuitively.
+  \item If the parameters have been modified, the software would generate a new image according to the new data. Sometimes customers may need both the old image according to the old data and the new image with its data to contrast. If there is a contrast window which could contrast the data and images between old and new, the software will give customers a more intuitive experience
+\end{enumerate}
+\subsection{Assessment of the process}
+Our teammates cooperate better and become more efficient after nearly one year's effort and adjustment. It is no doubt that the accomplishment of the project is a result of our concerted effort. From the perplexed start to the efficient cooperation later, we experienced a lot. During this period, there is something rewarding and also something that needs improvement. The followings are the assessments of our project.
+\begin{enumerate}
+  \item The five members of the process united in a concerted effort, maintained a high degree of activity and attendance
+  \item Team members communicated frequently and contacted our supervisor when we met problems, and we were all hard-working and willing to work.
+  \item At first, all the members were learning about the basic theory of the Particle filter. We waste too many too much time on the foundation of mathematics and it is not necessary.
+  \item The progress of software design was slowed down because in the initial stage we spend a few weeks learning math basic together in low efficiency.
+  \item We divided our group into two teams, one is responsible for algorithm implementation of Particle filter, and the other is responsible for software design. This had greatly speeded up our process.
+  \item Our project nearly had no progress during the Chinese Spring Festival holiday. This affected the subsequent progress
+  \item Though we communicated with our supervisor positively and frequently, the math problem of Particle filter is still hard for year two student majored in computer science, which is responsible to the incomplete function implementation of our final software.
+\end{enumerate}
+
+\subsubsection{Further improvement}
+At first few weeks, all the meetings with our supervisor were like math lectures, every member of the group wanted to understand what Particle filter is and its mathematical principles, that was meaningless. If we divided our team in an inchoate time and have a clear distribution of responsibilities, we would save a lot of time and catch up progress.
+
+\subsection{Summary}
+Although we encountered many obstacles in the development process, due to the lack of experience, we took many detours, but we finally made meaningful achievements and gained valuable experience. In this project, we improved our understanding of algorithms, learned new mathematical knowledge, and tried various code languages and frameworks. From the very beginning, we didn't know what Monte Carlo was, until we could transform the particle filter into the algorithm that we were familiar with. And then we made the software which completes data visualization. Most important of all, we understand the importance of a team to software engineering. Through the constant grinding, joint efforts and collaboration among our team members, we've come to realize how powerful a team can be in this project. We know that the software has many shortcomings and needs improvement, but we are still proud of our software. This is the fruit of our team.
+We are going to express gratitude to our supervisor Dr. Liang and our tutor Dave’ s strong support and help for our project. Their rich experience and deep understanding on algorithm, schedule management and software development are undoubtedly the key to our project. Without their help, we cannot succeed.
+
+
+
+
+
+
 
 
 

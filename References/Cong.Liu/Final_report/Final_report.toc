@@ -1,11 +1,38 @@
-\contentsline {section}{\numberline {1}Introduction}{2}
-\contentsline {subsection}{\numberline {1.1}Background of the Project}{2}
-\contentsline {subsection}{\numberline {1.2}Motivation \& Wide implmentation of state estimation}{2}
-\contentsline {subsubsection}{\numberline {1.2.1}Automotive Navigation-Example}{3}
-\contentsline {subsubsection}{\numberline {1.2.2}Navigation for Augmented Reality}{5}
-\contentsline {subsection}{\numberline {1.3}Scope of the project}{6}
-\contentsline {subsection}{\numberline {1.4}Introducing two kinds of auxiliary particle filters(APF)}{6}
-\contentsline {subsubsection}{\numberline {1.4.1}Sequential Monte Carlo Methods}{6}
-\contentsline {subsubsection}{\numberline {1.4.2}Auxiliary particle filter(APF)}{6}
-\contentsline {subsubsection}{\numberline {1.4.3}Bootstrap particle filter}{9}
-\contentsline {subsubsection}{\numberline {1.4.4}Fully adapted particle filter}{9}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.1}Background of the Project}{3}
+\contentsline {subsection}{\numberline {1.2}Motivation \& Wide implmentation of state estimation}{3}
+\contentsline {subsubsection}{\numberline {1.2.1}Automotive Navigation-Example}{4}
+\contentsline {subsubsection}{\numberline {1.2.2}Navigation for Augmented Reality}{6}
+\contentsline {subsection}{\numberline {1.3}Scope of the project}{7}
+\contentsline {subsection}{\numberline {1.4}Introducing two kinds of auxiliary particle filters(APF)}{7}
+\contentsline {subsubsection}{\numberline {1.4.1}Sequential Monte Carlo Methods}{7}
+\contentsline {subsubsection}{\numberline {1.4.2}Auxiliary particle filter(APF)}{7}
+\contentsline {subsubsection}{\numberline {1.4.3}Bootstrap particle filter}{10}
+\contentsline {subsubsection}{\numberline {1.4.4}Fully adapted particle filter}{10}
+\contentsline {section}{\numberline {2}Requirement Specification}{11}
+\contentsline {subsection}{\numberline {2.1}Introduction}{11}
+\contentsline {subsection}{\numberline {2.2}User case Diagram}{12}
+\contentsline {subsection}{\numberline {2.3}Prototype}{12}
+\contentsline {subsection}{\numberline {2.4}Requirements list}{16}
+\contentsline {subsubsection}{\numberline {2.4.1}Functional requirements}{16}
+\contentsline {subsubsection}{\numberline {2.4.2}Non-functional requirements}{17}
+\contentsline {section}{\numberline {3}Development Strategies}{18}
+\contentsline {subsection}{\numberline {3.1}Agile}{18}
+\contentsline {subsection}{\numberline {3.2}Techiniques}{18}
+\contentsline {subsection}{\numberline {3.3}Plan \& Task assignments}{19}
+\contentsline {section}{\numberline {4}Design & Implementation}{19}
+\contentsline {subsubsection}{\numberline {4.0.1}Programming Language for Development}{19}
+\contentsline {subsubsection}{\numberline {4.0.2}Developling framework}{19}
+\contentsline {subsubsection}{\numberline {4.0.3}Developling Tools}{20}
+\contentsline {subsubsection}{\numberline {4.0.4}Package Tools}{20}
+\contentsline {subsubsection}{\numberline {4.0.5}Data Visualization Tools}{20}
+\contentsline {subsubsection}{\numberline {4.0.6}Math Tools}{20}
+\contentsline {section}{\numberline {5}Test}{20}
+\contentsline {subsection}{\numberline {5.1}Pass/Fail Criteria}{21}
+\contentsline {subsection}{\numberline {5.2}Approach}{21}
+\contentsline {section}{\numberline {6}Evaluation and Reflection}{22}
+\contentsline {subsection}{\numberline {6.1}Assessment of the product}{22}
+\contentsline {subsubsection}{\numberline {6.1.1}Further improvement}{22}
+\contentsline {subsection}{\numberline {6.2}Assessment of the process}{23}
+\contentsline {subsubsection}{\numberline {6.2.1}Further improvement}{24}
+\contentsline {subsection}{\numberline {6.3}Summary}{24}

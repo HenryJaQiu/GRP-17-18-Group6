@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  16 APR 2018 07:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  16 APR 2018 23:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -118,6 +118,30 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `Final_report.aux'.
 
@@ -193,85 +217,211 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 2.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+)
+./Final_report.toc:23: Misplaced alignment tab character &.
+<argument> \numberline {4}Design &
+                                   Implementation
+l.23 ...numberline {4}Design & Implementation}{19}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+)
 \tf@toc=\write3
 \openout3 = `Final_report.toc'.
 
- [1] <./source/1.png, id=13, 598.235pt x 418.56375pt>
-File: ./source/1.png Graphic file (type png)
-
-<use ./source/1.png>
-Package pdftex.def Info: ./source/1.png used on input line 73.
+ [1] [2] <./source/PF/1.png, id=16, 598.235pt x 418.56375pt>
+File: ./source/PF/1.png Graphic file (type png)
+ <use ./source/PF/1.png>
+Package pdftex.def Info: ./source/PF/1.png used on input line 73.
 (pdftex.def)             Requested size: 255.46513pt x 178.74188pt.
- [2] <./source/2.png, id=21, 391.4625pt x 300.12125pt>
-File: ./source/2.png Graphic file (type png)
- <use ./source/2.png>
-Package pdftex.def Info: ./source/2.png used on input line 88.
+ [3] <./source/PF/2.png, id=24, 391.4625pt x 300.12125pt>
+File: ./source/PF/2.png Graphic file (type png)
+ <use ./source/PF/2.png>
+Package pdftex.def Info: ./source/PF/2.png used on input line 88.
 (pdftex.def)             Requested size: 233.14706pt x 178.74188pt.
- [3 <./source/1.png>] <./source/3.png, id=26, 446.66875pt x 322.20375pt>
-File: ./source/3.png Graphic file (type png)
- <use ./source/3.png>
-Package pdftex.def Info: ./source/3.png used on input line 106.
+ [4 <./source/PF/1.png>] <./source/PF/3.png, id=29, 446.66875pt x 322.20375pt>
+File: ./source/PF/3.png Graphic file (type png)
+ <use ./source/PF/3.png>
+Package pdftex.def Info: ./source/PF/3.png used on input line 106.
 (pdftex.def)             Requested size: 247.79503pt x 178.74188pt.
- [4 <./source/2.png>] <./source/4.png, id=31, 480.79625pt x 417.56pt>
-File: ./source/4.png Graphic file (type png)
- <use ./source/4.png>
-Package pdftex.def Info: ./source/4.png used on input line 116.
+ [5 <./source/PF/2.png>] <./source/PF/4.png, id=34, 480.79625pt x 417.56pt>
+File: ./source/PF/4.png Graphic file (type png)
+ <use ./source/PF/4.png>
+Package pdftex.def Info: ./source/PF/4.png used on input line 116.
 (pdftex.def)             Requested size: 240.11874pt x 208.53372pt.
- [5 <./source/3.png> <./source/4.png>] <./source/5.JPG, id=37, 4047.12pt x 532.99126pt>
-File: ./source/5.JPG Graphic file (type jpg)
- <use ./source/5.JPG>
-Package pdftex.def Info: ./source/5.JPG used on input line 138.
+ [6 <./source/PF/3.png> <./source/PF/4.png>] <./source/PF/5.JPG, id=41, 4047.12pt x 532.99126pt>
+File: ./source/PF/5.JPG Graphic file (type jpg)
+ <use ./source/PF/5.JPG>
+Package pdftex.def Info: ./source/PF/5.JPG used on input line 138.
 (pdftex.def)             Requested size: 323.9978pt x 42.66457pt.
+ [7 <./source/PF/5.JPG>] [8] [9] <./source/PF/6.png, id=59, 708.6475pt x 205.76875pt>
+File: ./source/PF/6.png Graphic file (type png)
+ <use ./source/PF/6.png>
+Package pdftex.def Info: ./source/PF/6.png used on input line 237.
+(pdftex.def)             Requested size: 323.9978pt x 94.08018pt.
+ [10 <./source/PF/6.png>] <./source/PF/7.png, id=64, 708.6475pt x 240.9pt>
+File: ./source/PF/7.png Graphic file (type png)
+ <use ./source/PF/7.png>
+Package pdftex.def Info: ./source/PF/7.png used on input line 263.
+(pdftex.def)             Requested size: 323.9978pt x 110.14265pt.
+ <./source/Requirement/1.png, id=65, 416.757pt x 252.4632pt>
+File: ./source/Requirement/1.png Graphic file (type png)
+ <use ./source/Requirement/1.png>
+Package pdftex.def Info: ./source/Requirement/1.png used on input line 278.
+(pdftex.def)             Requested size: 393.41774pt x 238.31647pt.
 
-./Final_report.tex:145: Undefined control sequence.
-l.145 ... to compute the filtering PDFs $ \lbracep
-                                                  (x_t|y_{1:t})\rbrace $ seq...
+Overfull \hbox (33.41774pt too wide) in paragraph at lines 278--279
+ [] 
+ []
+
+[11 <./source/PF/7.png>] <./source/Requirement/2.png, id=70, 364.2408pt x 284.262pt>
+File: ./source/Requirement/2.png Graphic file (type png)
+ <use ./source/Requirement/2.png>
+Package pdftex.def Info: ./source/Requirement/2.png used on input line 290.
+(pdftex.def)             Requested size: 229.0394pt x 178.74188pt.
+ [12 <./source/Requirement/1.png>] <./source/Requirement/3.png, id=76, 363.2772pt x 284.7438pt>
+File: ./source/Requirement/3.png Graphic file (type png)
+ <use ./source/Requirement/3.png>
+Package pdftex.def Info: ./source/Requirement/3.png used on input line 299.
+(pdftex.def)             Requested size: 228.04546pt x 178.74188pt.
+ <./source/Requirement/4.png, id=77, 362.7954pt x 284.262pt>
+File: ./source/Requirement/4.png Graphic file (type png)
+ <use ./source/Requirement/4.png>
+Package pdftex.def Info: ./source/Requirement/4.png used on input line 307.
+(pdftex.def)             Requested size: 228.13051pt x 178.74188pt.
+ [13 <./source/Requirement/2.png> <./source/Requirement/3.png>] <./source/Requirement/5.png, id=83, 363.2772pt x 284.7438pt>
+File: ./source/Requirement/5.png Graphic file (type png)
+ <use ./source/Requirement/5.png>
+Package pdftex.def Info: ./source/Requirement/5.png used on input line 315.
+(pdftex.def)             Requested size: 228.04546pt x 178.74188pt.
+ <./source/Requirement/6.png, id=84, 362.7954pt x 284.262pt>
+File: ./source/Requirement/6.png Graphic file (type png)
+ <use ./source/Requirement/6.png>
+Package pdftex.def Info: ./source/Requirement/6.png used on input line 324.
+(pdftex.def)             Requested size: 228.13051pt x 178.74188pt.
+ [14 <./source/Requirement/4.png> <./source/Requirement/5.png>] <./source/Requirement/7.png, id=90, 365.2044pt x 284.7438pt>
+File: ./source/Requirement/7.png Graphic file (type png)
+ <use ./source/Requirement/7.png>
+Package pdftex.def Info: ./source/Requirement/7.png used on input line 332.
+(pdftex.def)             Requested size: 229.25525pt x 178.74188pt.
+ <./source/Requirement/8.png, id=91, 363.2772pt x 284.7438pt>
+File: ./source/Requirement/8.png Graphic file (type png)
+ <use ./source/Requirement/8.png>
+Package pdftex.def Info: ./source/Requirement/8.png used on input line 340.
+(pdftex.def)             Requested size: 228.04546pt x 178.74188pt.
+ [15 <./source/Requirement/6.png> <./source/Requirement/7.png>]
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no † in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no † in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no † in font cmr10!
+ [16 <./source/Requirement/8.png>]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [17]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no º in font cmr10!
+Missing character: There is no à in font cmr10!
+
+./Final_report.tex:400: Misplaced alignment tab character &.
+l.400 ...code and related documents. ÔºàCong Liu &
+                                                   Kaiwen ZhangÔºâ
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no º in font cmr10!
+Missing character: There is no â in font cmr10!
+[18]
+./Final_report.tex:406: Misplaced alignment tab character &.
+<argument> Design &
+                    Implementation
+l.406 \section{Design & Implementation}
+                                       
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+[19]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+ [20]
+./Final_report.tex:469: Undefined control sequence.
+l.469 After two semesters\‚
+                           Äô study and work, we finally completed our softw...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
-
- []
-
-[6 <./source/5.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 181--184
-
- []
-
-[7] [8] <./source/6.png, id=56, 708.6475pt x 205.76875pt>
-File: ./source/6.png Graphic file (type png)
- <use ./source/6.png>
-Package pdftex.def Info: ./source/6.png used on input line 237.
-(pdftex.def)             Requested size: 323.9978pt x 94.08018pt.
- [9 <./source/6.png>] <./source/7.png, id=61, 708.6475pt x 240.9pt>
-File: ./source/7.png Graphic file (type png)
- <use ./source/7.png>
-Package pdftex.def Info: ./source/7.png used on input line 263.
-(pdftex.def)             Requested size: 323.9978pt x 110.14265pt.
- [10 <./source/7.png>] (./Final_report.aux)
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+[21]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no Œ in font cmr10!
+Missing character: There is no ª in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [22] [23]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [24] (./Final_report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3376 strings out of 492995
- 47913 string characters out of 6132704
- 111409 words of memory out of 5000000
- 6883 multiletter control sequences out of 15000+600000
+ 3410 strings out of 492995
+ 49038 string characters out of 6132704
+ 112410 words of memory out of 5000000
+ 6915 multiletter control sequences out of 15000+600000
  10707 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,32p,470b,257s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,6n,32p,963b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Final_report.pdf (11 pages, 2199888 bytes).
+Output written on Final_report.pdf (25 pages, 2616699 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 176 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
