@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <div>{{ count_1 }}</div><br> -->
-    <div class="controller"><strong>Parameter Settings</strong></div><br>
+    <div class="controller"><strong>Parameter Settings</strong><br><br>
       <div class="clicker">
         <button class='btn btn-primary' v-on:click="startAlgorithm">Start</button>&nbsp;&nbsp;
         <button class='btn btn-default' v-on:click="chartRefresh">Refresh</button><br>
@@ -85,7 +85,9 @@
 
 <style type="text/css">
   .controller {
-    font-size: 20px;
-    margin-left: 1%
+    font-size: 18px;
+    position: absolute;
+    left: 500px;
+    top: 50px;
   }
 </style>
