@@ -7,7 +7,6 @@
 ``` bash
 # install dependencies
 npm install
-npm install echarts --save
 
 # serve with hot reload at localhost:9080
 npm run dev

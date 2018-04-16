@@ -1,3 +1,4 @@
+// By Xiang Zhang
 import {openFile, saveFile} from './IOfunctions.js'
 const {remote} = require('electron')
 const {dialog, nativeImage} = remote
@@ -7,6 +8,7 @@ const OSX = process.platform === 'darwin'
 const WIN = process.platform === 'win32'
 const template = []
 
+// Menu bar setting
 template.push({
   label: 'File',
   submenu: [
@@ -81,6 +83,7 @@ template.push({
 addMenuOSX()
 addMenuWin()
 
+// check platform
 function addMenuOSX () {
   if (!OSX) {
     return

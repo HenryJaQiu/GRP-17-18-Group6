@@ -1,3 +1,4 @@
+<!-- By Hejia Qiu -->
 <template>
   <div>
     <div class="chart" id="myChart"></div>

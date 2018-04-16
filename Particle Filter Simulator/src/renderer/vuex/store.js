@@ -1,10 +1,10 @@
+// // By Cong Liu and Hejia Qiu
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import mutations from './mutations'
-// import actions from './actions'
 
 Vue.use(Vuex)
 
+// default
 const state = {
   matrixXhat: null,
   matrixTrue: null,

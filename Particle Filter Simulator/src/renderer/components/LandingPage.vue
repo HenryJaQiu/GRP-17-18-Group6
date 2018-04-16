@@ -1,3 +1,4 @@
+<!-- By Hejia Qiu -->
 <template>
   <div id="wrapper">
     <main>
@@ -19,7 +20,8 @@
   // import child components
   import FilterChart from './LandingPage/FilterChart'
   import ParameterController from './LandingPage/ParameterController'
-  // import the data component from ./src/render/vuex/store.js
+
+  // import the data component
   import store from '../vuex/store'
 
   export default {

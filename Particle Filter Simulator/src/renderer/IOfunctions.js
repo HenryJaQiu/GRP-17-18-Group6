@@ -1,3 +1,4 @@
+// By Xiang Zhang
 import store from './vuex/store.js'
 const math = require('mathjs')
 const fs = require('fs')
