@@ -1,0 +1,71 @@
+
+\section{Development Strategies}
+\subsection{Agile}
+Stakeholders:
+\begin{enumerate}
+  \item Teachers: Teachers might use this software to help explaining particle filter for teaching purpose. Main requirement of this system is to visualize the output of the algorithm. Before the visualization, teacher will be able to set the parameters of particle filter, then the algorithm will run in the background.
+  \item Students: Students require same functions as teacher and expect that this software will be able to provide data import/export functions. By those functions they can compare output of the algorithm with different parameters, in the form of both data and visual image. Those functions can also be used to submit the output to teacher if required.
+
+\end{enumerate}
+\subsection{Techniques}
+As this software is designed as an academic teaching tool and might run on school’s or users’ own machine, we are supposed to choose techniques that are available to develop light-weight and cross-platform PC application.\\
+The implement of data visualization and algorithm computation is the basic requirement to be considered.
+Learning cost and the flexibility for cooperative development will also be considered as the group is supposed to learn and develop as a team. 
+
+\subsection{Plan \& Task assignments}
+\begin{enumerate}
+  \item For this group project, as it is founded on deep mathematical knowledge, two members mostly focus on the realization of the algorithm, including the implementation of the algorithm in background code and related documents. (Cong Liu, Kaiwen Zhang)
+  \item One member is responsible for choosing developing techniques, including developing language, framework and tool components. He is also supposed to set up the software development framework and help other members build the develop environment and solve technique problems in developing. (Hejia Qiu)
+  \item One member will cooperate with the former one to develop the software, both in design and code, and supposed to complete some functions and test work. Prototype and interface design is also supposed to be completed by this member with Hejia. (Xiang Zhang)
+  \item As this group project requires meeting and documents, one member is supposed to record meeting minutes and necessary documents, for both developers and users. (Zexi Song)
+\end{enumerate}
+
+\section{Design \& Implementation}
+\subsection{Introduction}
+    Considering the requirements and developing cost of the whole project, we chose Node.js and Electron as develop platform and Vue.js as front-end framework. Those techniques help to develop a light-weight and cross-platform app, which works as an algorithm simulator.\\
+    Other tools, such as Echarts.js, are used for satisfying specific requirements.
+\subsection{Programming Language for Development}
+\begin{itemize}
+    \item JavaScript, HTML and CSS\\
+    As this project requires data visualization function, front-end is a suitable choice as there exists visualizing frameworks like Echarts.js based on JavaScript and canvas in front-end development.
+    Front-end developing also decrease the cost of interface development and can easily improve UI by CSS tools, such as Bootstrap. In addition, group members have basic skill and developing experience on it so use front-end language can decrease learning cost. 
+\end{itemize}
+\subsection{Developing framework}
+\begin{itemize}
+    \item Electron\\
+    Electron is an open-source framework to build cross-platform desktop Apps with front-end language. It is based on Node.js and npm source.
+    \item Vue.js\\
+    Vue.js is a progressive JavaScript framework. It is approachable, versatile and performant.\\
+    The main advantage of this framework is that with it we can divide the software into components. It is much easier for group project that group members will not get confused by reading others’ code, but just focus on their own components.
+\end{itemize}
+
+\subsection{Developing Tools}
+\begin{itemize}
+    \item Vue-cli\\
+    Vue-cli is a full system for scaffolding Vue.js project and a popular tooling baseline for the Vue ecosystem.
+    With this tool, the components structure becomes much clearer.\\
+    In Vue-cli, we do not need to register vue components in HTML files but have specific space for them. JavaScript and CSS code are also wrote in component files. 
+    \item Electron-Vue\\
+    With this tool we have no need to manually set up electron apps, based on vue-cli system.
+\end{itemize}
+
+\subsection{Package Tools}
+\begin{itemize}
+    \item Electron-builder\\
+    This is a useful tool to package an Electron app based on npm/yarn source.\\
+    By using this tool, we can easily package the software into cross platform installation package and installation-free software. The size of package will also be small. In addition, auto-update function is supported by Electron-builder.
+\end{itemize}
+
+\subsection{Data Visualization Tools}
+\begin{itemize}
+    \item Echarts.js\\
+    ECharts.js is a powerful, interactive charting and visualization library for browser.\\
+    The API of this framework can satisfy all requirement of the software, such as data zooming and image exporting. It provides a strong library of data visualization for our further work.
+\end{itemize}
+
+\subsection{Math Tools}
+\begin{itemize}
+    \item Math.js\\
+    Math.js is an extensive math library for JavaScript and Node.js and is used in this project to do matrix calculation.\\
+    However, it still lacks many functions for matrix calculation, comparing with MATLAB library. With this problem, we have made a lot of efforts for the implementation of the algorithm. 
+\end{itemize}
