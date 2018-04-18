@@ -55,13 +55,22 @@
             orient: 'horizontal',
             feature: {
               dataZoom: {
-                yAxisIndex: 'none'
+                yAxisIndex: 'none',
+                title: {
+                  zoom: 'Area Zooming',
+                  back: 'Restore Area Zooming'
+                }
               },
               dataView: {
-                readOnly: true
+                readOnly: true,
+                title: 'Data View',
+                lang: ['Data View', 'Close', 'Refresh']
               },
-              restore: {},
+              restore: {
+                title: 'Restore'
+              },
               saveAsImage: {
+                title: 'Save as Image',
                 name: 'FilterImage',
                 excludeComponents: ['dataZoom', 'toolbox']
               }

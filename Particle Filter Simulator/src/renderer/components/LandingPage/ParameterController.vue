@@ -96,6 +96,6 @@
   }
   #tips {
     opacity: 0.5;
-    font-size:13px;
+    font-size:11px;
   }
 </style>
