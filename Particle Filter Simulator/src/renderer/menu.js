@@ -45,16 +45,16 @@ template.push({
   label: 'Help',
   submenu: [
     {
-      label: 'Website',
+      label: 'Help',
       click: function () {
         const BrowserWindow = require('electron').remote.BrowserWindow
         const path = require('path')
-        let win = new BrowserWindow({width: 400, height: 320})
+        let win = new BrowserWindow({width: 700, height: 500})
         win.openDevTools()
         win.on('closed', function () {
           win = null
         })
-        const modalPath = path.join(`http://localhost:9080/src/renderer/modules/test.html`)
+        const modalPath = path.join(`http://localhost:9080/src/renderer/modules/help.html`)
         win.loadURL(modalPath)
         console.log(modalPath)
         win.show()
