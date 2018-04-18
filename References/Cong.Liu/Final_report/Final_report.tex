@@ -442,23 +442,27 @@ Math.js is an extensive math library for JavaScript and Node.js and is used in t
 \section{Test}
 The test of Particle Filter Simulator software aims to discover the functional and service performance-related problems through variety test approaches. According to apposite approaches, basic errors and drawbacks on functions and logic can be detected and reduced.   Ensure that software can implement its functions as expected.
 
-In this software, the whole functions will be tested including importing a json file, exporting data, drawing chart of algorithm running  result, refreshing the chart and altering the parameter value of Particle Filter algorithm. The correctness of algorithm implementation will be tested particularly. Plus, parts of non-functional features which are significant to the software will be tested as well, for instance, system compatibility, installation and uninstallation, and performance in response time.
+In this software, the whole functions will be tested including importing json file, exporting data, drawing chart of algorithm running  result, refreshing the chart and altering the parameter value of Particle Filter algorithm. The correctness of algorithm implementation will be tested particularly. In condition, parts of non-functional features which are significant to the software will be tested as well, for instance, system compatibility, installation and uninstallation, and performance in response time.
 \subsection{Pass/Fail Criteria}
-For functional features, the pass criterion applies to all of them: implement correctly without any error and warning. And if the condition do not reach, the feature is failed.
+For functional features, the pass criterion applies to all of them: implement correctly without any error and warning. Otherwise, it is failed.
 
 For non-functional features, pass or fail criteria should be considered separately.
 \begin{enumerate}
   \item System compatibility: The criterion of system compatibility is whether the software can implement its functions well as a cross-platform software. Two mainstream operating systems must be satisfied, Windows and Mac OS.
-  \item Installation: installation pass criterion is verification that software works properly after installation. It is failed if installation error occurs.
+  \item Installation: installation pass criterion is to verify that software works properly after installation. It is failed if installation error occurs.
   \item Uninstallation: the pass criterion of uninstallation is the software can be uninstalled clearly and has no harmful effects on the system.
-  \item Performance(response time): Miller(1968) indicated there are three levels of response time for users. 0.1 to 0.2s: users may think it is immediate response.1~5s: The users feel that the interaction is basically smooth. The users will notice the delay. 8s or more: Users will follow the dialog. A prompt or progress bar is required to confirm that the system is still in process. Treat the information as a reference, the pass criterion is set to most response time of operations should be under 5s, otherwise, a progress bar should be showed to tell users the computer does work. Over 5s and no progress bar or other prompt will be considered as failure.
+  \item Performance(response time): Miller(1968) indicates there are three levels of response time for users. 0.1 to 0.2s: users may think it is immediate response.1~5s: The users feel that the interaction is basically smooth. The users will notice the delay. 8s or more: Users will follow the dialog. A prompt or progress bar is required to confirm that the system is still in process. Treat the information as a reference, the pass criterion is set to most response time of operations should be under 5s. Otherwise, a progress bar should be showed to tell users the computer does work. Response time over 5s and no prompt showed will be considered as failure.
 
 \end{enumerate}
 \subsection{Approach}
-The test will use black box testing to check functions with equivalence partition testing and boundary testing, while white box testing and unit testing to check the source code. Matlab will be applied to support mathematical principles.
+The test will use black box testing to check functions with equivalence partition testing and boundary testing, while using white box testing and unit testing to check the source code. Matlab will be applied to support mathematical principles.
 
-Performance will be tested by Chrome devtools to present the response time of every operation. All test cases are manual tests.
+Performance will be tested by Chrome devtools to present the response time of every operation. All test cases are manually testing.
 
+\subsection{Summary}
+To sum up above test cases, there are no logic and functions error in the software. The major issue is that it is slow to deal with complex data. Due to the data from chrome-devtools, the main time is for scripting. After investigation and analysis, this kind of slow is limited by JavaScript. There is no library for complex mathematical computation, therefore, amounts of basic computation must be written in code. It leads to the slow running time.
+
+To solve the issue, reducing the number of calculations is the main direction. In order to achieve this goal, we are try to get a more concise algorithm and find a powerful mathematical library is needed. Maybe in next update, it will have a better running time. Other approaches like changing the way of declaration or loop to reducing calling time have a role as well and we are changing them gradually.
 
 
 
