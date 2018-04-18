@@ -1,7 +1,6 @@
 // By Xiang Zhang
 import {openFile, saveFile} from './IOfunctions.js'
-const {remote} = require('electron')
-const {dialog, nativeImage} = remote
+const {dialog, nativeImage} = require('electron').remote
 const iconImage = nativeImage.createFromPath('./build/icons/256x256.png')
 const pkg = require('../../package.json')
 const OSX = process.platform === 'darwin'
@@ -47,24 +46,15 @@ template.push({
     {
       label: 'Help',
       click: function () {
-        const BrowserWindow = require('electron').remote.BrowserWindow
-        const path = require('path')
-        let win = new BrowserWindow({width: 700, height: 500})
-        win.openDevTools()
-        win.on('closed', function () {
-          win = null
-        })
-        const modalPath = path.join(`http://localhost:9080/src/renderer/modules/help.html`)
-        win.loadURL(modalPath)
-        console.log(modalPath)
-        win.show()
+        const shell = require('electron').remote.shell
+        shell.openExternal('https://zx108547.github.io/Paticle-Filter-Simulator-/') // open help page in website
       }
     },
     { type: 'separator' },
     {
       label: 'About',
       click: function (item, focusedWindow) {
-        dialog.showMessageBox(focusedWindow, {
+        dialog.showMessageBox(focusedWindow, { // show a message box
           title: 'About',
           type: 'none',
           icon: iconImage,

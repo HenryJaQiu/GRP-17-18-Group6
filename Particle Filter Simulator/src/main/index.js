@@ -28,9 +28,7 @@ function createWindow () {
     fullscreen: false,
     fullscreenable: false
   })
-
   mainWindow.loadURL(winURL)
-
   mainWindow.on('closed', () => {
     mainWindow = null
   })
