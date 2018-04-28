@@ -22,7 +22,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "particle-filter-simulator",
+    "productName": "Particle Filter Simulator",
     "appId": "org.simulatedgreg.electron-vue",
     "directories": {
       "output": "build"
