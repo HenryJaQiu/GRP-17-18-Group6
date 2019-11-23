@@ -2,7 +2,7 @@
 This is for UNNC's GRP work of Group-6.
 
 <br>
-Only Hejia Qiu, Xiang Zhang, Zexi Song, Kaiwen Zhang and Cong Liu are supposed to commit this program, Everyone is responsible for one's own code.
+Thanks to Hejia Qiu, Cong Liu, Xiang Zhang, Zexi Song and Kaiwen Zhang's contribution in this group project, and also the support from supervisor Dr. Liang Dai and module convenor Dr. Dave Towey.
 
 <br>
 
@@ -11,4 +11,4 @@ Only Hejia Qiu, Xiang Zhang, Zexi Song, Kaiwen Zhang and Cong Liu are supposed t
 
 ---
 <br>
-Hope we make a awesome program together!
+This project is finished in 2018, so no more update. Best wishes to every member.
